@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> head}}
+
+<body>
+    {{> header}}   
+    <div class="container">
+         <div class="row">             
+                <div class="input-group mb-3">
+                    <form method="POST" action="/auth/logout">
+                        <div class="mb-3">
+                            <h4><span class="badge bg-secondary">Bienvenido {{ this.user }}</span></h4>
+                            <input type="submit" class="btn btn-outline-primary" value="Desloguear" />
+                        </div>
+                    </form>
+                </div>
+         </div>
+
+         <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                {{{body}}}
+            </div>
+        </div>
+
+    </div>
+</body>
