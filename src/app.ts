@@ -56,10 +56,11 @@ class App {
           passport.use(new FacebookStrategy({
               clientID: "322865212595664",
               clientSecret: "e0bbfcd509a9f3a2d5281ed521b8bee1",
-              callbackURL: "http://localhost:3000/auth/facebook/callback"
+              callbackURL: "http://localhost:3000/auth/facebook/callback",
+              profileFields: ['id', 'displayName', 'link', 'photos', 'email']
           },
           function (accessToken: any, refreshToken: any, profile: any, done: any){
-
+console.log(profile);
             var user = {
                 //'email': profile.emails[0].value,
                 'name' : profile.displayName,

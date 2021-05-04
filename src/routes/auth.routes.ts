@@ -19,9 +19,9 @@ export class RoutesAuth {
         });
 
         app.post('/auth/logout', (req: Request, res: Response) => {
-            console.log('/auth/logout');
+            //console.log('/auth/logout');
             req.session.destroy(function (err) {
-                console.log('session.destroy');
+                //console.log('session.destroy');
                 res.redirect('/auth/login'); 
             });
         })
