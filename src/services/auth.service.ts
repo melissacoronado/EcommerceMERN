@@ -23,6 +23,8 @@ export class AuthService implements IAuth{
         return await bcrypt.compare(passw, user.password)
     }
 
+    
+
     /*findUser = async (email: string, passw: string) => {
         try{            
             let user = await UserService.findUser(email, passw); 

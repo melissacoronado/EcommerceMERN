@@ -54,17 +54,20 @@ class App {
           };
 
           passport.use(new FacebookStrategy({
-              clientID: 322865212595664,
+              clientID: "322865212595664",
               clientSecret: "e0bbfcd509a9f3a2d5281ed521b8bee1",
               callbackURL: "http://localhost:3000/auth/facebook/callback"
           },
           function (accessToken: any, refreshToken: any, profile: any, done: any){
-            /*User.findOrCreate({ facebookId: profile.id }, function (err: any, user: any) {
-                return cb(err, user);
-            });*/
-            console.log("Auth done");
-            console.log(profile.displayName);
-            return done(null, profile);
+
+            var user = {
+                //'email': profile.emails[0].value,
+                'name' : profile.displayName,
+                'id'   : profile.id,
+                //'token': accessToken
+            }
+            
+            return done(null, user);
           }
           ));
 
@@ -76,6 +79,12 @@ class App {
           passport.deserializeUser(function(user: any, done: any) {
             done(null, user);
           });
+
+          this.app.use(expressSession({
+            secret: 's3cr3t',
+            resave: true,
+            saveUninitialized: true
+          }));
 
           this.app.use(passport.initialize());
           this.app.use(passport.session());

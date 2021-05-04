@@ -1,14 +1,16 @@
 import express, {Application, Request, Response, NextFunction } from 'express'
 import { ProductController } from "../controllers/products.controller";
+import { AuthController } from '../controllers/auth.controller'
 
 export class RoutesProductos { 
     
     public productController: ProductController = new ProductController() 
+    public authController: AuthController = new AuthController() 
     
     public routes(app: Application): void {   
         
         app.route('/productos')
-        .get( async (req: Request, res: Response) => {    
+        .get(this.authController.isLoggedIn, async  (req: Request, res: Response)=> {    
             try{        
                 await this.productController.showProducts(req, res);
                 
@@ -17,6 +19,7 @@ export class RoutesProductos {
             }
         })
         .post(this.productController.addNewProduct);
+
 
     }
     

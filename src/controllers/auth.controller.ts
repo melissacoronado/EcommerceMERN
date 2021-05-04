@@ -23,4 +23,14 @@ export class AuthController{
 
         res.render('partials/main', {layout : 'home', user: user.email });
     }
+
+    public isLoggedIn = (req: Request, res: Response, next: any) => {
+        console.log('isLoggedIn' + (<any>req).user)
+        if ((<any>req).user) {
+            next();
+        } else {
+            res.render('partials/main', {layout : 'login', msj: 'Debe iniciar sesión' });
+            //res.status(401).send('Not Logged In');
+        }
+    }
 }

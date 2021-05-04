@@ -12,8 +12,24 @@ export class RoutesAuth {
 
         app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }),
         function(req, res) {
-            console.log(res);
-            res.render('partials/main', {layout : 'home', user: "Usuario facebook" });
+            //console.log('/auth/facebook/callback');
+            //res.redirect('/productos');
+            let userLogin = (<any>req).user;
+            res.render('partials/main', {layout : 'home', user: userLogin.name });
         });
+
+        app.post('/auth/logout', (req: Request, res: Response) => {
+            console.log('/auth/logout');
+            req.session.destroy(function (err) {
+                console.log('session.destroy');
+                res.redirect('/auth/login'); 
+            });
+        })
+
+        app.get('/auth/login',(req: Request, res: Response) => {
+            res.render('partials/main', {layout : 'login' });
+        })
+
+
     }
 }
