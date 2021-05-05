@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-const userCollection = 'usuarios';
+const userCollection = 'users';
 export const userSchema = new mongoose.Schema({
     email: {
         type: String,

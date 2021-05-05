@@ -1,21 +1,16 @@
 import express, {Application, Request, Response, NextFunction } from 'express'
-//import { ProductController } from "../controllers/products.controller";
-//import { passport } from '../app'
 
 export class RoutesAuth { 
 
     public routes(app: Application, passport: any): void {   
-        //public productController: ProductController = new ProductController() 
-
 
         app.get('/auth/facebook',passport.authenticate('facebook'));
 
-        app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }),
+        app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }),//sucessRedirect: '/home'
         function(req, res) {
-            //console.log('/auth/facebook/callback');
-            //res.redirect('/productos');
             let userLogin = (<any>req).user;
-            res.render('partials/main', {layout : 'home', user: userLogin.name });
+            //console.log(userLogin);
+            res.render('partials/main', {layout : 'home', userEmail: userLogin.email});
         });
 
         app.post('/auth/logout', (req: Request, res: Response) => {

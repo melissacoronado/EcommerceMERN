@@ -1,5 +1,3 @@
-import * as mongoose from 'mongoose';
-import { ProductsSchema } from '../models/schemas/productos.schema';
 import { Request, Response } from 'express';
 import { ProductosService } from '../services/productos.service';
 

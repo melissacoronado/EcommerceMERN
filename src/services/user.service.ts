@@ -12,8 +12,8 @@ export class UserService implements  IUser{
 
   constructor(){}
 
-    findUser = async (email: string, passw: string) => {
-        const user = await userModel.find({email: email}).exec();
+    findUser = async (mail: string, passw: string) => {
+        const user = await userModel.find({email: mail}).exec();
         return user;
     }
 
