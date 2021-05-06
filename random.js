@@ -11,7 +11,7 @@ const generarRandoms = (cant) => {
     return count;
 }
 
-generarRandoms(10);
+//generarRandoms(10);
 
 process.on('Generar', (msg, cant)=> {
     console.log('Generar');
