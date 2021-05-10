@@ -60,7 +60,7 @@ class App {
 
           //console.log('proess'+process.env.facebookID )
           passport.use(new FacebookStrategy({
-              clientID: process.env.facebookID || "322865212595664",
+              clientID: process.env.facebookId || "322865212595664",
               clientSecret: process.env.facebookSecret || "e0bbfcd509a9f3a2d5281ed521b8bee1",
               callbackURL: "http://localhost:3000/auth/facebook/callback",
               profileFields: ['id', 'displayName', 'photos', 'emails'],   
