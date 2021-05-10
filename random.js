@@ -8,13 +8,14 @@ const generarRandoms = (cant) => {
     var count = {};
     arr.forEach(function(i) { count[i] = (count[i]||0) + 1;});
     
+    //console.log(count);
     return count;
 }
 
 //generarRandoms(10);
 
-process.on('Generar', (msg, cant)=> {
-    console.log('Generar');
+process.on('message', (cant)=> {
+    //console.log('message');
     const sum = generarRandoms(cant)
     process.send(sum)
 })

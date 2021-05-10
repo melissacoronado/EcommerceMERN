@@ -19,18 +19,21 @@ export class RoutesGeneric {
 
         app.get('/randoms',(req: Request, res: Response) => {
             let arrGenNums;
-            const cant: number = +req.params.cant || 15; //100000000;
-            console.log(cant);
+            let cant: number = (req.query.cant) ? +req.query.cant : 15; //100000000;
+            //console.log(cant);
 
             const computo = fork('./random.js')
             computo.send(cant);
-            computo.on('Generar', (sum: Number, cant: Number) => {
+            computo.on('message', (sum: Number) => {
                 console.log('computo.on Generar');
                 arrGenNums = sum;
-                res.end(`La suma es ${sum}`)
+                //res.end(`Aleatorios ${sum}`)
+                console.log('Aqui'+sum);
+                res.render('partials/randoms', {layout : 'generic', arrayNum: arrGenNums});
             })
+            //arrGenNums = {1: 100, 2: 200, 3: 300};
             //console.log('Aqui'+arrGenNums);
-            res.render('partials/processInfo', {layout : 'generic', arrayNum: arrGenNums});
+            //res.render('partials/randoms', {layout : 'generic', arrayNum: arrGenNums});
         })
 
 

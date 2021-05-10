@@ -58,10 +58,10 @@ class App {
             saveUninitialized: false
           };
 
-          //console.log('proess'+process.env.facebookID )
+          //console.log(`process.argv: ${process.argv} `)
           passport.use(new FacebookStrategy({
-              clientID: process.env.facebookId || "322865212595664",
-              clientSecret: process.env.facebookSecret || "e0bbfcd509a9f3a2d5281ed521b8bee1",
+              clientID: process.argv[3] || "322865212595664",
+              clientSecret: process.argv[4] || "e0bbfcd509a9f3a2d5281ed521b8bee1",
               callbackURL: "http://localhost:3000/auth/facebook/callback",
               profileFields: ['id', 'displayName', 'photos', 'emails'],   
               scope: ['email']
