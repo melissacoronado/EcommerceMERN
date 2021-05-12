@@ -9,7 +9,7 @@ const http = require('http').Server(app);
 
 
 
-let puerto = process.argv[2] || 3000;
+export let puerto = process.argv[2] || 3000;
 console.log(puerto);
 
 http.listen(puerto, ()=> {

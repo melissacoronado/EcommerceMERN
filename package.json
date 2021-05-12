@@ -8,7 +8,9 @@
     "dev": "nodemon src/server.ts",
     "build": "tsc -p .",
     "ts": "ts-node src/serverCluster.ts 3000 322865212595664 e0bbfcd509a9f3a2d5281ed521b8bee1 FORK",
-    "prod": "forever start src/server.ts"
+    "prod": "forever start js/server.js",
+    "pm2Fork": "pm2 start js/server.js --name='Server1' --watch -- PORT 3001",
+    "pm2Cluster": "pm2 start js/server.js --name='Server2' --watch -i 8 -- PORT 3001"
   },
   "keywords": [],
   "author": "",

@@ -1,5 +1,6 @@
 import express, {Application, Request, Response, NextFunction } from 'express'
 import { GenericController } from "../controllers/generic.controller";
+import { puerto } from '../server';
 const { fork } = require('child_process')
 
 
@@ -12,7 +13,8 @@ export class RoutesGeneric {
    
         app.get('/info', async (req: Request, res: Response) =>{
             try{    
-                console.log(`PID Worker ${process.pid}`)    
+                console.log(`PID Worker ${process.pid}`)  
+                console.log(`Servidor express <span style="color:blueviolet;">(PM2)</span> en ${puerto} - <b>PID ${process.pid}</b> - ${new Date().toLocaleString()}`);  
                 await this.genericController.showProcessInfo(req, res);                
             }catch(error){
                 res.status(404).json({error : 'No se pudo obtener el listado de Productos.'})
