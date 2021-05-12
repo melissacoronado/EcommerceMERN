@@ -3,6 +3,7 @@ import { GenericController } from "../controllers/generic.controller";
 const { fork } = require('child_process')
 
 
+
 export class RoutesGeneric { 
 
     public genericController: GenericController = new GenericController() 
@@ -10,7 +11,8 @@ export class RoutesGeneric {
     public routes(app: Application): void {        
    
         app.get('/info', async (req: Request, res: Response) =>{
-            try{        
+            try{    
+                console.log(`PID Worker ${process.pid}`)    
                 await this.genericController.showProcessInfo(req, res);                
             }catch(error){
                 res.status(404).json({error : 'No se pudo obtener el listado de Productos.'})
@@ -34,7 +36,7 @@ export class RoutesGeneric {
             //arrGenNums = {1: 100, 2: 200, 3: 300};
             //console.log('Aqui'+arrGenNums);
             //res.render('partials/randoms', {layout : 'generic', arrayNum: arrGenNums});
-        })
+        });
 
 
     }

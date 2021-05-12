@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-
 export class GenericController{
 
     public async showProcessInfo (req: Request, res: Response) {                
@@ -10,6 +9,7 @@ export class GenericController{
             PathExec: process.env['PATH'],            
             ProcessId: process.pid,
             FolderC: process.cwd(),
+            numCpus: require('os').cpus().length
         };
         //console.log(response);
         let arrArgV1 = process.argv[0];

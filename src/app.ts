@@ -20,6 +20,10 @@ const FacebookStrategy = require("passport-facebook").Strategy;
 
 import { UserService } from './services/user.service'
 import { userDTO } from './models/dto/user.dto';
+
+//export const log4js = require('log4js')
+
+
 class App {
 
     public app: express.Application = express();
@@ -29,6 +33,7 @@ class App {
 
     constructor() {
         this.config();
+        //this.logs(); 
         //this.mongoSetup();
         this.routePrv.routes(this.app);   
         this.routeAuth.routes(this.app, passport); 
@@ -120,6 +125,18 @@ class App {
         }));
     }
 
+    /*private logs(): void{
+      log4js.configure({
+          appenders:{
+              fileAppender: {type:'file', filename: "./logs/logFile.log"},
+              console:{ type: 'console'}
+          },
+          categories: {
+              consola: { appenders: ['console'], level: 'info'},
+              archivo: { appenders: ['fileAppender'], level: 'Error'}
+          }
+      });
+    }*/
     
 }
 
