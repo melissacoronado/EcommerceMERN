@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoutesGeneric = void 0;
 const generic_controller_1 = require("../controllers/generic.controller");
+const server_1 = require("../server");
 const { fork } = require('child_process');
 class RoutesGeneric {
     constructor() {
@@ -20,6 +21,7 @@ class RoutesGeneric {
         app.get('/info', (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 console.log(`PID Worker ${process.pid}`);
+                console.log(`Servidor express <span style="color:blueviolet;">(PM2)</span> en ${server_1.puerto} - <b>PID ${process.pid}</b> - ${new Date().toLocaleString()}`);
                 yield this.genericController.showProcessInfo(req, res);
             }
             catch (error) {

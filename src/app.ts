@@ -124,19 +124,7 @@ class App {
             layoutsDir: path.join(__dirname, '..','/public/views/layouts/'),
         }));
     }
-
-    /*private logs(): void{
-      log4js.configure({
-          appenders:{
-              fileAppender: {type:'file', filename: "./logs/logFile.log"},
-              console:{ type: 'console'}
-          },
-          categories: {
-              consola: { appenders: ['console'], level: 'info'},
-              archivo: { appenders: ['fileAppender'], level: 'Error'}
-          }
-      });
-    }*/
+  
     
 }
 
