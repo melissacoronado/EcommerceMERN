@@ -12,7 +12,7 @@ const http = require('http').Server(app);
 export let puerto = process.argv[2] || 4000;
 console.log(puerto);
 
-http.listen(puerto, ()=> {
+http.listen(process.env.PORT || 4000, ()=> {
     console.log(`Servidor escuchando en puerto ${puerto} PID Worker ${process.pid}`)
 }).on("error", (err: any)=>{
     console.log(err)
