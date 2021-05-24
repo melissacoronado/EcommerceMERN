@@ -40,6 +40,14 @@ export class RoutesGeneric {
             //res.render('partials/randoms', {layout : 'generic', arrayNum: arrGenNums});
         });
 
+        app.get('/saludar', async (req: Request, res: Response) =>{
+            try{    
+                res.status(200).json({error : 'Hola Heroku.'})              
+            }catch(error){
+                res.status(404).json({error : 'No se pudo obtener el listado de Productos.'})
+            }
+        });
+
 
     }
 }
