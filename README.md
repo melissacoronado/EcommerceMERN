@@ -1,12 +1,14 @@
 # EcommerceMERN
 Proyecto Final Curso Backend CoderHouse
 
-Desafia 30
->> Consigna:
-Arrancar dos instancias del servidor en el que venimos trabajando utilizando PM2 modo fork (sin -i max).
-Las dos instancias estarán: una en el puerto 8081 modo fork (parámetro línea de comandos en FORK: cluster interno deshabilitado) y la otra en 8082 modo cluster (parámetro línea de comandos en CLUSTER: cluster interno habilitado). Ambas estarán en modo watch.
-Configurar un servidor Nginx para que las rutas entrantes /info y /randoms por el puerto 80 de Nginx se deriven a esas dos instancias, recibiendo la del modo cluster cuatro veces más de tráfico que la instancia en modo fork.
-Verificar en la ruta de info, el puerto y el pid de atención y el correcto funcionamiento del balanceador de carga implementado en Nginx. Comprobar que la ruta randoms funcione adecuadamente.
+Desafia 33
+>> Consigna: 
+Crear un proyecto en Heroku.com para subir el servidor que venimos realizando, reformando todo lo necesario para su correcto funcionamiento en la nube.
+Subir el código a Heroku.com, sin olvidar incluir el archivo .gitignore para evitar subir los node_modules. Comprobar que el proyecto inicie de manera correcta en la nube. Verificar que en su ruta raíz se encuentre la página pública del servidor.
+El servidor debe seguir funcionando en forma local.
+Realizar un cambio a elección en alguna vista, probar en forma local y subir nuevamente el proyecto a Heroku, verificando que la nueva reforma esté disponible online.
+Revisar a través de una consola local, los mensajes enviados por nuestro servidor en Heroku a su propia consola.
+
 
 
 Desafio 29
