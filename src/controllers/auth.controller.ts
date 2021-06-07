@@ -19,7 +19,7 @@ export class AuthController{
     public async findUser (req: Request, res: Response) {                
         const { email, password } = req.body  
 
-        const user = await userService.findUser(email, password)
+        const user = await userService.findUser(email)
 
         res.render('partials/main', {layout : 'home', user: user.email });
     }

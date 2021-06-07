@@ -1,18 +1,21 @@
 import { userDTO } from "../models/dto/user.dto"
 import { userModel } from '../models/schemas/users.schema'
-import { Model } from "mongoose";
+//import { Model } from "mongoose";
+import * as bCrypt from 'bcrypt';
 
 interface IUser{  
     //Metodos  
-    findUser(email: string, passw: string): void;
+    findUser(email: string): void;
     newUser(user: userDTO): void;
+    isValidPassword(user: userDTO, password: string): void;
+    createHash(password: string): void;
 }
 
 export class UserService implements  IUser{
 
   constructor(){}
 
-    findUser = async (mail: string, passw: string) => {
+    findUser = async (mail: string) => {
         const user = await userModel.find({email: mail}).exec();
         return user;
     }
@@ -31,14 +34,17 @@ export class UserService implements  IUser{
                        .catch( (err: any) => console.log(err));    
     }
 
-  /*  
-  public async findOne(params): Promise<any> {
-    return await User.find<User>(params).first()
-    .then(user => {
-      return (user) 
-      ? Promise.resolve(user) 
-      : Promise.reject('User not exist')
-    })
-    .catch(err => Promise.reject(new NotFoundException(err)))
-  }*/
+    isValidPassword = function(user: userDTO, password: string){
+      //console.log(`usuario en isValidPassword: ${user}`);
+      //console.log('userDTO.password ' + user.password + ' passw ' + password);
+      //console.log('name ' + user.name + 'Passw' + user.password);
+      //prueba 
+      //return bCrypt.compareSync(password,bCrypt.hashSync(password, bCrypt.genSaltSync(10)));
+      //original
+      return bCrypt.compareSync(password, user.password);
+    }  
+
+    createHash = function(password: string){
+      return bCrypt.hashSync(password, bCrypt.genSaltSync(10));
+    }
 }

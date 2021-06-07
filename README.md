@@ -1,42 +1,26 @@
 # EcommerceMERN
 Proyecto Final Curso Backend CoderHouse
+Desafio36 - Tercera Entrega proyecto Final
+>> Consigna:
+>>Se debe entregar:
 
-Desafia 33
->> Consigna: 
-Crear un proyecto en Heroku.com para subir el servidor que venimos realizando, reformando todo lo necesario para su correcto funcionamiento en la nube.
-Subir el código a Heroku.com, sin olvidar incluir el archivo .gitignore para evitar subir los node_modules. Comprobar que el proyecto inicie de manera correcta en la nube. Verificar que en su ruta raíz se encuentre la página pública del servidor.
-El servidor debe seguir funcionando en forma local.
-Realizar un cambio a elección en alguna vista, probar en forma local y subir nuevamente el proyecto a Heroku, verificando que la nueva reforma esté disponible online.
-Revisar a través de una consola local, los mensajes enviados por nuestro servidor en Heroku a su propia consola.
+- Un menú de registro y autenticación de usuarios basado en passport local, guardando en la base de datos las credenciales y el resto de los datos ingresados al momento del registro. 
+    - El registro de usuario consiste en crear una cuenta en el servidor almacenada en la base de datos, que contenga el email y password de usuario, además de su nombre, dirección, edad, número de teléfono (debe contener todos los prefijos internacionales) y foto ó avatar. La contraseña se almacenará encriptada en la base de datos.
+    - La imagen se podrá subir al servidor y se guardará en una carpeta pública del mismo a la cual se tenga acceso por url.
+- Un formulario post de registro y uno de login. De modo que, luego de concretarse cualquiera de estas operaciones en forma exitosa, el usuario accederá a su home.
+    - El usuario se logueará al sistema con email y password y tendrá acceso a un menú en su vista, a modo de barra de navegación. Esto le permitirá ver los productos totales con los filtros que se hayan implementado y su propio carrito de compras e información propia (datos de registro con la foto). Además, dispondrá de una opción para desloguearse del sistema.
+    - Ante la incorporación de un usuario, el servidor enviará un email al administrador con todos los datos de registro y asunto 'nuevo registro', a una dirección que se encuentre por el momento almacenada en una constante global.
+- Envío de un email y un mensaje de whatsapp al administrador desde el servidor, a un número de contacto almacenado en una constante global.
+    - El usuario iniciará la acción de pedido en la vista del carrito.
+    - Será enviado una vez finalizada la elección para la realizar la compra de productos.
+    - El email contendrá en su cuerpo la lista completa de productos a comprar y en el asunto la frase 'nuevo pedido de ' y el nombre y email del usuario que los solicitó. En el mensaje de whatsapp se debe enviar la misma información del asunto del email.
+    - El usuario recibirá un mensaje de texto al número que haya registrado, indicando que su pedido ha sido recibido y se encuentra en proceso.
 
+>>Aspectos a incluir:
+- El servidor trabajará con una base de datos DBaaS (Ej. MongoDB Atlas) y estará preparado para trabajar en forma local o en la nube a través de la plataforma PAAS Heroku.
+- Habilitar el modo cluster para el servidor, como opcional a través de una constante global.
+- Utilizar alguno de los loggers ya vistos y así reemplazar todos los mensajes a consola por logs eficientes hacia la misma consola. En el caso de errores moderados ó graves el log tendrá además como destino un archivo elegido.
+- Realizar una prueba de performance en modo local, con y sin cluster, utilizando Artillery en el endpoint del listado de productos (con el usuario vez logueado). Verificar los resultados.
 
-
-Desafio 29
->> Consigna: 
-Tomando con base el proyecto que vamos realizando, agregar un parámetro más en la ruta de comando que permita ejecutar al servidor en modo fork o cluster. Dicho parámetro será 'FORK' en el primer caso y 'CLUSTER' en el segundo, y de no pasarlo, el servidor iniciará en modo fork.
-*++ Agregar en la vista info, el número de procesadores presentes en el servidor.
-* Ejecutar el servidor (modos FORK y CLUSTER) con nodemon verificando el número de procesos tomados por node.
-* Ejecutar el servidor (con los parámetros adecuados) utilizando Forever, verificando su correcta operación. Listar los procesos por Forever y por sistema operativo.
-* Ejecutar el servidor (con los parámetros adecuados: modo FORK) utilizando PM2 en sus modos modo fork y cluster. Listar los procesos por PM2 y por sistema operativo.
-* Tanto en Forever como en PM2 permitir el modo escucha, para que la actualización del código del servidor se vea reflejado inmediatamente en todos los procesos.
-* Hacer pruebas de finalización de procesos fork y cluster en los casos que corresponda.
-
-NOTA:
-Es probable que en el caso de tener activo el child process fork (realizado en el entregable anterior) aparezcan más procesos de node activos que la cantidad esperada. Desactivar el código del fork y su endpoint '/randoms' y verificar que ahora la cantidad de procesos de node corresponda.
-
-
-
-Desafio 28
->> Consigna:
-* En base al último proyecto entregado, permitir ingresar por línea de comandos el puerto local de escucha del servidor, luego el FACEBOOK_CLIENT_ID y el FACEBOOK_CLIENT_SECRET.
-* Si no se ingresan estos valores, se tomarán valores default presentes en el programa.
-El servidor imprimirá en consola el código de salida del proceso de node.js
-* Asimismo, se dispondrá de una nueva ruta get '/info', que devolverá una vista con los siguientes datos:
-- Argumentos de entrada                             - Path de ejecución
-- Nombre de la plataforma (sistema operativo)       - Process id
-- Versión de node.js                                - Carpeta corriente
-- Uso de memoria
-* Se creará una ruta '/randoms' que permita calcular un cantidad de números aleatorios en el rango del 1 al 1000 especificada por query params, por ej. ..../randoms?cant=20000. Si dicho parámetro no se ingresa, calcular 100000000 números.
-    - El dato devuelto al frontend será un objeto que contendrá como claves los números random generados junto a la cantidad de veces que salió cada uno. Esta ruta no será bloqueante (utilizar el método fork de child process). Comprobar el no bloqueo con una cantidad de 500000000 de randoms.
 
 

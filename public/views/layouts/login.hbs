@@ -5,23 +5,23 @@
 <body>
     <div class="container">
         <div class="row">             
-            <form class="row g-3" method="GET" action="/auth/facebook">
+            <form class="row g-3" method="POST" action="/login">
                 <h3>Iniciar Sesión</h3>
                 <h4><span class="badge bg-secondary">{{ this.msj }}</span></h4>
-                <!--div class="mb-3">
+                <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="name@example.com">
-                </div-->
+                    <input type="password" class="form-control" id="password" name="password" placeholder="name@example.com">
+                </div>
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3">Login Facebook</button>
+                    <button type="submit" class="btn btn-primary mb-3">iniciar</button>
                 </div>                
             </form>
             <div class="col-auto">
-                <button type="button" class="btn btn-primary mb-3" onclick="location.href = '/auth/register'">Ir a Register</button>
+                <button type="button" class="btn btn-primary mb-3" onclick="location.href = '/register'">Ir a Register</button>
             </div>
         </div>
         
