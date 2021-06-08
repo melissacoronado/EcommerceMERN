@@ -17,6 +17,18 @@ export const userSchema = new mongoose.Schema({
     lastName: {
         type: String,
         required: 'Ingrese Apellido'
+    },
+    direccion: {
+        type: String,
+        required: 'Ingrese Dirección'
+    },
+    edad: {
+        type: String,
+        required: 'Ingrese Edad'
+    },
+    telefono: {
+        type: String,
+        required: 'Ingrese Teléfono'
     }
 });
 

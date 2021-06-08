@@ -8,9 +8,9 @@ let userService = new UserService()
 
 export class AuthController{
     public async addNewUser (req: Request, res: Response) {                
-        const { nombre, apellido, email, password } = req.body  
+        const { nombre, apellido, email, password, direccion, edad, telefono } = req.body  
         //Falta validar que vengan todos los parametros              
-        const newUser = new userDTO( nombre, apellido, email, password)
+        const newUser = new userDTO( nombre, apellido, email, password, direccion, edad, telefono)
         const userCreated = await userService.newUser(newUser)       
 
         res.render('partials/main', {layout : 'home', user: newUser.email });

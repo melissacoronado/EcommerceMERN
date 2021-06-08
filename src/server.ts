@@ -4,8 +4,8 @@ import app from './app';
 //import { listeners } from 'node:process';
 const http = require('http').Server(app);
 
-
-
+export const usuariomail = 'jarrod.spinka71@ethereal.email';
+export const passwmail = 'DnzMPpEUuDTgqYK2Gb';
 
 
 

@@ -8,14 +8,14 @@ interface IAuth{
     //Metodos  
     //findUser(email: string, passw: string): void;
     //newUser(newUser: userDTO): void;
-    encryptPassw(passw: string): void;
-    checkPassw(passw: string, user: userDTO): void;
+    //encryptPassw(passw: string): void;
+    //checkPassw(passw: string, user: userDTO): void;
 }
 
 export class AuthService implements IAuth{
     constructor(){}
 
-    encryptPassw = async (passw: string) => {
+    /*encryptPassw = async (passw: string) => {
         return await bcrypt.hash(passw, saltOrRounds);
     }
 
@@ -25,7 +25,7 @@ export class AuthService implements IAuth{
 
     
 
-    /*findUser = async (email: string, passw: string) => {
+    findUser = async (email: string, passw: string) => {
         try{            
             let user = await UserService.findUser(email, passw); 
             return user;   

@@ -77,14 +77,15 @@ class App {
             let usr;
             (async () => {
               //usr = await UserSrvc.findUser(username);
-              usr = await userModel.find({email: username}).exec();
+              usr = await userModel.findOne({email: username});
+              //console.log(`user ${usr}`);
               if(!usr){
                 console.log('User Not Found with ususrername '+username);
                 console.log('message', 'User Not found.');                 
                 return done(null, false)
               }
-              console.log(`user from db ${usr} nombre: ${usr.name}`);
-              if (!UserSrvc.isValidPassword(usr, UserSrvc.createHash(password))){
+              //console.log(`password ${usr.password} nombre: ${usr.email}`);
+              if (!UserSrvc.isValidPassword(usr, password)){
                 console.log('Invalid Password');
                 console.log('message', 'Invalid Password');
                 return done(null, false) 
@@ -93,18 +94,62 @@ class App {
               return done(null, usr);
             })()            
           }));
+
+          passport.use('register', new LocalStrategy({
+            usernameField: 'email',    
+            passwordField: 'password',
+            passReqToCallback : true
+          },
+          function(req: any, username:string, password:string, done: any) {
+            const findOrCreateUser = function(){
+              // find a user in Mongo with provided username
+              userModel.findOne({'username':username},function(err: any, user: any) {
+                // In case of any error return
+                if (err){
+                  console.log('Error in SignUp: '+err);
+                  return done(err);
+                }
+                // already exists
+                if (user) {
+                  console.log('User already exists');
+                  console.log('message','User Already Exists');
+                  return done(null, false)
+                } else {
+                  // if there is no user with that email
+                  // create the user
+                  const { nombre, apellido, email, password, direccion, edad, telefono } = req.body  
+                  console.log(req.body);
+                  var newUser = new userDTO(email,password,nombre,apellido,direccion, edad, telefono);
+
+                  let UserSrvc = new UserService();
+                  newUser.password = UserSrvc.createHash(password);
+        
+                  // save the user
+                  //console.log(newUser);
+                  let usuarioCreado = UserSrvc.newUser(newUser);
+                  //newUser.save(function(err) {
+                    if (!usuarioCreado){
+                      console.log('Error in Saving user: '+err);  
+                      throw err;  
+                    }
+                    console.log('User Registration succesful');    
+                    return done(null, newUser);
+                  //});
+                }
+              });
+            }
+            // Delay the execution of findOrCreateUser and execute 
+            // the method in the next tick of the event loop
+            process.nextTick(findOrCreateUser);
+          })
+        )
           
           passport.serializeUser(function(user:any, done:any) {
-            done(null, user._id);
+            done(null, user);
           });
            
-          passport.deserializeUser(function(id:any, done:any) {
-            let UserSrvc = new UserService();
-            let usr;
-            (async () => {
-              usr = await UserSrvc.findUser(id)
-              done('', usr);
-            });            
+          passport.deserializeUser(function(user:any, done:any) {
+            done(null, user);      
           });
 
           this.app.use(expressSession({

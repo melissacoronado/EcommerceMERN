@@ -16,7 +16,7 @@ export class UserService implements  IUser{
   constructor(){}
 
     findUser = async (mail: string) => {
-        const user = await userModel.find({email: mail}).exec();
+        const user = await userModel.findOne({email: mail}).exec();
         return user;
     }
 
@@ -25,6 +25,7 @@ export class UserService implements  IUser{
     }
 
     newUser(user: userDTO) {
+      console.log(`newuser: ${user}`);
         return new userModel(user)
                        .save()
                        .then((user: any) => {
@@ -35,12 +36,6 @@ export class UserService implements  IUser{
     }
 
     isValidPassword = function(user: userDTO, password: string){
-      //console.log(`usuario en isValidPassword: ${user}`);
-      //console.log('userDTO.password ' + user.password + ' passw ' + password);
-      //console.log('name ' + user.name + 'Passw' + user.password);
-      //prueba 
-      //return bCrypt.compareSync(password,bCrypt.hashSync(password, bCrypt.genSaltSync(10)));
-      //original
       return bCrypt.compareSync(password, user.password);
     }  
 
