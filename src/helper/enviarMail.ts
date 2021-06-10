@@ -23,15 +23,13 @@ export const sendMail = (mailOptions: any) => {
 }
 
 
-
-
 const transporterGmail = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'melcg23@gmail.com',
-        pass: '******'
-    },
-    tls : { rejectUnauthorized: false }
+        user: 'pruebasd03@gmail',
+        pass: '1592630*'
+    }
+    , tls : { rejectUnauthorized: false }
 });
 
 export const sendGMail = (mailOptions: any) => {

@@ -1,8 +1,8 @@
 import express, {Application, Request, Response, NextFunction } from 'express'
 import { GenericController } from "../controllers/generic.controller";
-import { puerto } from '../server';
+import { puerto, emailAdministrador } from '../server';
 const { fork } = require('child_process')
-
+import { sendGMail } from '../helper/enviarMail';
 
 
 export class RoutesGeneric { 
@@ -42,7 +42,17 @@ export class RoutesGeneric {
 
         app.get('/saludar', async (req: Request, res: Response) =>{
             try{    
-                res.status(200).json({error : 'Hola Heroku.'})              
+                const mailOptions2 = {
+                    from: 'Ecommerce Nuevo Usuario',
+                    to: emailAdministrador,
+                    subject: "Nuevo Registro",
+                    html: `<p>Usuario: Prueba correo</p></br>
+                    <p>Edad: 30</p></br>
+                    <p>Dirección: Direccion </p></br> `
+                }
+                sendGMail(mailOptions2);
+
+                res.status(200).json({error : 'Hola.'})              
             }catch(error){
                 res.status(404).json({error : 'No se pudo obtener el listado de Productos.'})
             }

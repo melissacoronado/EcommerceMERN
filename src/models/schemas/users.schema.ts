@@ -29,6 +29,10 @@ export const userSchema = new mongoose.Schema({
     telefono: {
         type: String,
         required: 'Ingrese Teléfono'
+    },
+    avatar: {
+        type: String,
+        required: 'Seleccione Foto Avatar'
     }
 });
 

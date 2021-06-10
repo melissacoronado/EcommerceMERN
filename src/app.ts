@@ -117,9 +117,9 @@ class App {
                 } else {
                   // if there is no user with that email
                   // create the user
-                  const { nombre, apellido, email, password, direccion, edad, telefono } = req.body  
+                  const { nombre, apellido, email, password, direccion, edad, telefono, avatar } = req.body  
                   console.log(req.body);
-                  var newUser = new userDTO(email,password,nombre,apellido,direccion, edad, telefono);
+                  var newUser = new userDTO(email,password,nombre,apellido,direccion, edad, telefono, avatar);
 
                   let UserSrvc = new UserService();
                   newUser.password = UserSrvc.createHash(password);

@@ -8,9 +8,9 @@ let userService = new UserService()
 
 export class AuthController{
     public async addNewUser (req: Request, res: Response) {                
-        const { nombre, apellido, email, password, direccion, edad, telefono } = req.body  
+        const { nombre, apellido, email, password, direccion, edad, telefono, avatar } = req.body  
         //Falta validar que vengan todos los parametros              
-        const newUser = new userDTO( nombre, apellido, email, password, direccion, edad, telefono)
+        const newUser = new userDTO( nombre, apellido, email, password, direccion, edad, telefono, avatar)
         const userCreated = await userService.newUser(newUser)       
 
         res.render('partials/main', {layout : 'home', user: newUser.email });
@@ -25,12 +25,12 @@ export class AuthController{
     }
 
     public isLoggedIn = (req: Request, res: Response, next: any) => {
-        console.log('isLoggedIn' + (<any>req).user)
+        //console.log('isLoggedIn' + (<any>req).user)
         if ((<any>req).user) {
             next();
         } else {
-            res.render('partials/main', {layout : 'login', msj: 'Debe iniciar sesión' });
-            //res.status(401).send('Not Logged In');
+            //res.render('partials/main', {layout : 'login', msj: 'Debe iniciar sesión' });
+            res.status(401).send('Not Logged In');
         }
     }
 }

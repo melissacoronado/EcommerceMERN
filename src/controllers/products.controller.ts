@@ -20,7 +20,8 @@ export class ProductController{
             res.status(404).json({error : 'No hay productos cargados.'})
             return;
         }else{
-            res.render('partials/main', {layout : 'home', ListaProductos: products });
+            res.status(200).json(products)
+            //res.render('partials/main', {layout : 'home', ListaProductos: products });
         }        
     }
 
