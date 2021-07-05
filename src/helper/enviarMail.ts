@@ -4,6 +4,7 @@ import { usuariomail, passwmail } from '../server'
 const transporter = nodemailer.createTransport({
     host: 'smtp.ethereal.email',
     port: 587,
+    secure: false,     // Agregale esta linea
     auth: {
         user: usuariomail,
         pass: passwmail
@@ -29,6 +30,7 @@ const transporterGmail = nodemailer.createTransport({
         user: 'pruebasd03@gmail',
         pass: '1592630*'
     }
+    , secure: false     // Agregale esta linea
     , tls : { rejectUnauthorized: false }
 });
 

@@ -2,7 +2,7 @@ import express, {Application, Request, Response, NextFunction } from 'express'
 import { GenericController } from "../controllers/generic.controller";
 import { puerto, emailAdministrador } from '../server';
 const { fork } = require('child_process')
-import { sendGMail } from '../helper/enviarMail';
+import { sendMail, sendGMail } from '../helper/enviarMail';
 
 
 export class RoutesGeneric { 
@@ -50,7 +50,7 @@ export class RoutesGeneric {
                     <p>Edad: 30</p></br>
                     <p>Dirección: Direccion </p></br> `
                 }
-                sendGMail(mailOptions2);
+                sendMail(mailOptions2);
 
                 res.status(200).json({error : 'Hola.'})              
             }catch(error){

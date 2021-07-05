@@ -1,0 +1,13 @@
+Meliii, como andas? Bueno tu proyecto es uno de los que vengo siguiendo dia a dia mas o menos jajaja. 
+De los que mas al tanto estoy. Personalmente, a mi no me gusta mucho el uso de clases en el codigo, 
+siento como que complica la lectura del codigo, pero bueno, son gustos personales eso. 
+
+Te recomiendo Meli a vos que tenes mas experiencia para mejorar la calidad del codigo, 
+usar herramientas como "Prettier" y otra es "ESLint" (Esas 2 son fundamentales).
+
+Despues el codigo lo vi muy bien, 
+si queres podes sacar todo lo que es sobre procesos y Clusters que no creo que lo volvamos a usar. 
+
+Podes crearte otra rama y sacarlo, no hay problema. 
+
+Y ojo que tenes un archivo carrito.dto.ts que esta vacio (no se si lo vas a utilizar despues pero por las dudas te lo remarco).
