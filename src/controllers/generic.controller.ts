@@ -19,8 +19,8 @@ export class GenericController{
             arg2: arrArgV2
         }
         //console.log(`Arr ${arrArgV}`);
-        res.render('partials/processInfo', {layout : 'generic', ProcessInfo: response, ListaArgumentos: arrArgV });
-               
+        //res.render('partials/processInfo', {layout : 'generic', ProcessInfo: response, ListaArgumentos: arrArgV });
+        res.status(200).json({ProcessInfo: response, ListaArgumentos: arrArgV})     
     }
 
     

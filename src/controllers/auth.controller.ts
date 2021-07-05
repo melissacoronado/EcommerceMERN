@@ -12,16 +12,16 @@ export class AuthController{
         //Falta validar que vengan todos los parametros              
         const newUser = new userDTO( nombre, apellido, email, password, direccion, edad, telefono, avatar)
         const userCreated = await userService.newUser(newUser)       
-
-        res.render('partials/main', {layout : 'home', user: newUser.email });
+        res.status(200).json('Inicio Sesión correcto') 
+        //res.render('partials/main', {layout : 'home', user: newUser.email });
     }
 
     public async findUser (req: Request, res: Response) {                
         const { email, password } = req.body  
 
         const user = await userService.findUser(email)
-
-        res.render('partials/main', {layout : 'home', user: user.email });
+        res.status(200).json(user) 
+        //res.render('partials/main', {layout : 'home', user: user.email });
     }
 
     public isLoggedIn = (req: Request, res: Response, next: any) => {

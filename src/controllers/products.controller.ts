@@ -10,8 +10,8 @@ export class ProductController{
         //Falta validar que vengan todos los parametros              
         const newProduct = { timestamp, nombre, descripcion, codigo, foto, precio, stock }
         await ProductsService.addProduct(newProduct)       
-
-        res.render('partials/main', {layout : 'home', ListaProductos: ProductsService.listaProductos});
+        res.status(200).json('Producto almacenado con exito') 
+        //res.render('partials/main', {layout : 'home', ListaProductos: ProductsService.listaProductos});
     }
 
     public async showProducts (req: Request, res: Response) {                
