@@ -10,29 +10,26 @@ export const userSchema = new mongoose.Schema({
         type: String,
         required: 'Ingrese contraseña'       
     },
-    name: {
+    nombre: {
         type: String,
         required: 'Ingrese Nombre'
     },
-    lastName: {
+    apellido: {
         type: String,
         required: 'Ingrese Apellido'
     },
     direccion: {
-        type: String,
-        required: 'Ingrese Dirección'
+        type: String
     },
     edad: {
-        type: String,
-        required: 'Ingrese Edad'
+        type: String
     },
     telefono: {
         type: String,
         required: 'Ingrese Teléfono'
     },
     avatar: {
-        type: String,
-        required: 'Seleccione Foto Avatar'
+        type: String
     }
 });
 

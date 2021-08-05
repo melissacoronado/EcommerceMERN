@@ -37,7 +37,7 @@ class App {
         //this.logs(); 
         //this.mongoSetup();
         this.routePrv.routes(this.app);   
-        this.routeAuth.routes(this.app, passport); 
+        this.routeAuth.routes(this.app); 
         this.routeGeneric.routes(this.app); 
         this.hbsConfig();  
 
@@ -56,7 +56,7 @@ class App {
         this.app.set('view engine', 'hbs');
 
         this.app.use(cookieParser());
-        this.app.use(bodyParser.json());
+        //this.app.use(bodyParser.json());
 
         const session = {
             secret: process.env.SESSION_SECRET,
@@ -64,93 +64,7 @@ class App {
             resave: false,
             saveUninitialized: false
           };
-
-          //console.log(`process.argv: ${process.argv} `)
-          passport.use('login', new LocalStrategy({
-            usernameField: 'email',    
-            passwordField: 'password',
-            passReqToCallback : true
-          },
-          function (req: any, username:string, password:string, done: any){  
-            //console.log(req.body);          
-            let UserSrvc = new UserService();
-            let usr;
-            (async () => {
-              //usr = await UserSrvc.findUser(username);
-              usr = await userModel.findOne({email: username});
-              //console.log(`user ${usr}`);
-              if(!usr){
-                console.log('User Not Found with ususrername '+username);
-                console.log('message', 'User Not found.');                 
-                return done(null, false)
-              }
-              //console.log(`password ${usr.password} nombre: ${usr.email}`);
-              if (!UserSrvc.isValidPassword(usr, password)){
-                console.log('Invalid Password');
-                console.log('message', 'Invalid Password');
-                return done(null, false) 
-              }
-              //console.log(usr);
-              return done(null, usr);
-            })()            
-          }));
-
-          passport.use('register', new LocalStrategy({
-            usernameField: 'email',    
-            passwordField: 'password',
-            passReqToCallback : true
-          },
-          function(req: any, username:string, password:string, done: any) {
-            const findOrCreateUser = function(){
-              // find a user in Mongo with provided username
-              userModel.findOne({'username':username},function(err: any, user: any) {
-                // In case of any error return
-                if (err){
-                  console.log('Error in SignUp: '+err);
-                  return done(err);
-                }
-                // already exists
-                if (user) {
-                  console.log('User already exists');
-                  console.log('message','User Already Exists');
-                  return done(null, false)
-                } else {
-                  // if there is no user with that email
-                  // create the user
-                  const { nombre, apellido, email, password, direccion, edad, telefono, avatar } = req.body  
-                  console.log(req.body);
-                  var newUser = new userDTO(email,password,nombre,apellido,direccion, edad, telefono, avatar);
-
-                  let UserSrvc = new UserService();
-                  newUser.password = UserSrvc.createHash(password);
-        
-                  // save the user
-                  //console.log(newUser);
-                  let usuarioCreado = UserSrvc.newUser(newUser);
-                  //newUser.save(function(err) {
-                    if (!usuarioCreado){
-                      console.log('Error in Saving user: '+err);  
-                      throw err;  
-                    }
-                    console.log('User Registration succesful');    
-                    return done(null, newUser);
-                  //});
-                }
-              });
-            }
-            // Delay the execution of findOrCreateUser and execute 
-            // the method in the next tick of the event loop
-            process.nextTick(findOrCreateUser);
-          })
-        )
           
-          passport.serializeUser(function(user:any, done:any) {
-            done(null, user);
-          });
-           
-          passport.deserializeUser(function(user:any, done:any) {
-            done(null, user);      
-          });
 
           this.app.use(expressSession({
             store: MongoStore.create({

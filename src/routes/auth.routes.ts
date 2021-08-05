@@ -1,13 +1,23 @@
-import express, {Application, Request, Response, NextFunction } from 'express'
+import {Application, Request, Response, NextFunction } from 'express'
 import { AuthController } from '../controllers/auth.controller';
 import { sendMail } from '../helper/enviarMail';
 import { usuariomail } from '../server'
 
 export class RoutesAuth { 
-    //public authController: AuthController = new AuthController() 
+    public authController: AuthController = new AuthController();
 
-    public routes(app: Application, passport: any): void {   
+    public routes(app: Application): void {  
+
+        app.route('/register')        
+        .post(this.authController.registerUser);
+
+        app.route('/login')
+        .post(this.authController.loginUser);
         
+        //Prueba - BORRAR
+        app.route('/JWT')        
+        .post(this.authController.isLoggedIn);
+        /*
         app.get('/login',(req: Request, res: Response) => {
             //console.log('get(/login');
             res.render('partials/main', {layout : 'login' });
@@ -19,7 +29,7 @@ export class RoutesAuth {
             console.log(err);
             console.log(user);
             console.log(info);
-        },*/
+        },
         { failureRedirect: '/faillogin' }), (req,res) => {
             let userLogin = (<any>req).user;
             res.status(200).json('Inicio Sesión OK');
@@ -41,17 +51,14 @@ export class RoutesAuth {
             //res.render('partials/main', {layout : 'login' });
         })  
 
-        app.get('/register',(req: Request, res: Response) => {
-            res.render('partials/main', {layout : 'register' });
-        })
-
+        
         app.post('/register', passport.authenticate('register', 
         /*function(err:any, user:any, info:any) {
             console.log("authenticate");
             console.log(err);
             console.log(user);
             console.log(info);
-        },*/
+        },
         { failureRedirect: '/failregister' }),(req: Request, res: Response) => {
             let userLogin = (<any>req).user;
             
@@ -71,6 +78,6 @@ export class RoutesAuth {
 
         app.get('/failregister', (req,res) => {
             res.render('partials/main', {layout : 'errorRegister' });
-        })
+        })*/
     }
 }

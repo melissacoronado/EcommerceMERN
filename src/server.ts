@@ -1,16 +1,13 @@
 
 import app from './app';
-//import express, {Application, Request, Response} from 'express'
-//import { listeners } from 'node:process';
+require('dotenv').config()
 const http = require('http').Server(app);
 
 export const usuariomail = 'donnell.prosacco36@ethereal.email';
 export const passwmail = 'KM6YfTc6mYFygTp2eq';
 export const emailAdministrador = 'melissa_coronado@hotmail.com';
 
-
-
-export let puerto = process.argv[2] || 3000;
+export let puerto = process.env.PORT || 3001;
 console.log(puerto);
 
 http.listen(process.env.PORT || puerto, ()=> {
