@@ -8,7 +8,6 @@ interface IUser{
     //Metodos  
     findUser(email: string): void;
     newUser(user: userDTO): void;
-    isValidPassword(user: userDTO, password: string): void;
 }
 
 export class UserService implements  IUser{
@@ -47,10 +46,5 @@ export class UserService implements  IUser{
         throw error
       }
     }
-
-    isValidPassword = function(user: userDTO, password: string){
-      return bCrypt.compareSync(password, user.password);
-    }  
-
     
 }

@@ -50,7 +50,7 @@ export class AuthController{
 
             const user = await userService.findUser(email);
             console.log('usuarioPass' + user.password);
-            console.log('isValidPassword ' +  userService.isValidPassword(user, user.password));
+            console.log('isValidPassword ' +  await authService.isValidPassword(user, user.password));
             //VOY AQUI - VALIDAR PASSW LOGIN
             if (user && (await authService.isValidPassword(user, user.password))) {
                 // Create token
