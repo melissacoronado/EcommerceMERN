@@ -13,7 +13,7 @@ export class AuthController{
         //validar Paramteros obligatorios
         if (!(email && password && nombre && apellido && telefono)) {
             res.status(400).send("Datos requeridos: email, password, nombre, apellido, telefono.");
-          }
+        }
 
         //Chequear si usuario existe
         let userExits = await userService.findUser(email); 
@@ -32,46 +32,30 @@ export class AuthController{
         }
     }
 
-    public async addNewUser (req: Request, res: Response) {                
-        const { nombre, apellido, email, password, direccion, edad, telefono, avatar } = req.body  
-        //Falta validar que vengan todos los parametros              
-        const newUser = new userDTO( nombre, apellido, email, password, direccion, edad, telefono, avatar)
-        const userCreated = await userService.newUser(newUser)       
-        res.status(200).json('Inicio Sesión correcto') 
-        //res.render('partials/main', {layout : 'home', user: newUser.email });
-    }
-
-    public async loginUser(req: Request, res: Response) {  
+    public async logInUser(req: Request, res: Response) {  
         try {
             const { email, password } = req.body;
             if (!(email && password)) {
                 res.status(400).send("Es obligatorio Email y password");
             }
 
-            const user = await userService.findUser(email);
-            console.log('usuarioPass' + user.password);
-            console.log('isValidPassword ' +  await authService.isValidPassword(user, user.password));
-            //VOY AQUI - VALIDAR PASSW LOGIN
-            if (user && (await authService.isValidPassword(user, user.password))) {
-                // Create token
-                const token =  authService.generateToken(user.email);
-                          
-                res.header("x-auth-token", token).status(201).json({Resultado: 'Inicio de sesión Exitoso!', jwt: token});
-              }
-              res.status(400).send("Credenciales inválidas");
+            const user:userDTO = await userService.findUser(email);
+            if (user ){
+                if (await authService.isValidPassword(password, user)) {
+                    const token =  authService.generateToken(user.email);   
+                    //0..console.log(await authService.verifyToken(token));                       
+                    res.header("x-auth-token", token).status(201).json({Resultado: 'Inicio de sesión Exitoso!', jwt: token});
+                }else{
+                    res.status(401).send("Credenciales inválidas");
+                }
+            }else{
+                res.status(401).send("Acceso No Autorizado");
+            }
+            
         }
         catch (err) {
             console.log(err);
         }
-    }
-
-    //va?
-    public async findUser (req: Request, res: Response) {                
-        const { email, password } = req.body  
-
-        const user = await userService.findUser(email)
-        res.status(200).json(user) 
-        //res.render('partials/main', {layout : 'home', user: user.email });
     }
 
     public isLoggedIn = (req: Request, res: Response, next: any) => {
@@ -82,16 +66,47 @@ export class AuthController{
         try {
             const decoded = authService.verifyToken(token);
             (<any>req).user = decoded;
-            next();
+            next();            
+
           } catch (err) {
+              console.log('isLoggedIn ' +err);
             return res.status(401).send("Token inválido");
           }
-
-        //console.log('isLoggedIn' + (<any>req).user)
-        /*if ((<any>req).user) {
-            next();
-        } else {
-            res.status(401).send('Not Logged In');
-        }*/
     }
+
+    public async logOutUser(req: Request, res: Response) {  
+        try {
+            //res.clearCookie('x-auth-token').send("Sesión finalizada");    
+            const tokenHeader = req.body.token || req.query.token || req.headers["x-access-token"];
+            const tkn = await authService.verifyToken(tokenHeader);
+            
+            const msjLogOut = await authService.logOutUser(tkn.user_id);  
+            console.log(await authService.verifyToken(tokenHeader));
+
+            res.status(200).send("Sesión Finalizada");
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+
+    //van?
+    /*public async findUser (req: Request, res: Response) {                
+        const { email, password } = req.body  
+
+        const user = await userService.findUser(email)
+        res.status(200).json(user) 
+        //res.render('partials/main', {layout : 'home', user: user.email });
+    }
+
+    public async addNewUser (req: Request, res: Response) {                
+        const { nombre, apellido, email, password, direccion, edad, telefono, avatar } = req.body  
+        //Falta validar que vengan todos los parametros              
+        const newUser = new userDTO( nombre, apellido, email, password, direccion, edad, telefono, avatar)
+        const userCreated = await userService.newUser(newUser)       
+        res.status(200).json('Inicio Sesión correcto') 
+        //res.render('partials/main', {layout : 'home', user: newUser.email });
+    }*/
+
+    
 }

@@ -7,22 +7,23 @@ export const ProductsSchema = new mongoose.Schema({
     },
     nombre: {
         type: String,
-        required: 'Ingrese nombre'
+        required: 'Nombre requerido'
     },
     descripcion: {
         type: String            
     },
     codigo: {
-        type: String            
+        type: String,
+        required: 'Código requerido'        
     },
-    fotos: {
-        type: [String]            
-    },
+    fotos: Array,
     precio:{
-        type: Number
+        type: Number,
+        required: 'Precio requerido'
     },
     stock:{
-        type: Number
+        type: Number,
+        required: 'Stock requerido'
     },
     created_date: {
         type: Date,

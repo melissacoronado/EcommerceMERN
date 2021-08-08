@@ -3,11 +3,11 @@ export class productosDTO {
     nombre: string;
     descripcion?: string;
     codigo: string;
-    foto: string;
+    foto: string[];
     precio: number;
     stock: number;
 
-    constructor(timestamp: Date, nombre: string, codigo: string, foto: string, precio: number, stock: number, descripcion?: string){
+    constructor(timestamp: Date, nombre: string, codigo: string, foto: string[], precio: number, stock: number, descripcion?: string){
         this.timestamp = timestamp;
         this.nombre = nombre;
         this.descripcion = descripcion;

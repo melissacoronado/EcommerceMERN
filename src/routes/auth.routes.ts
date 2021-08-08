@@ -12,11 +12,11 @@ export class RoutesAuth {
         .post(this.authController.registerUser);
 
         app.route('/login')
-        .post(this.authController.loginUser);
+        .post(this.authController.logInUser);
+
+        app.route('/logout')
+        .post(this.authController.isLoggedIn, this.authController.logOutUser);
         
-        //Prueba - BORRAR
-        app.route('/JWT')        
-        .post(this.authController.isLoggedIn);
         /*
         app.get('/login',(req: Request, res: Response) => {
             //console.log('get(/login');

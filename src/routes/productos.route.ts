@@ -10,17 +10,13 @@ export class RoutesProductos {
     public routes(app: Application): void {   
         
         app.route('/productos')
-        .get(this.authController.isLoggedIn, async  (req: Request, res: Response)=> {    
-            try{        
-                await this.productController.showProducts(req, res);
-                
-            }catch(error){
-                res.status(404).json({error : 'No se pudo obtener el listado de Productos.'})
-            }
-        })
-        .post(this.productController.addNewProduct);
+        .get(this.authController.isLoggedIn, this.productController.showProducts)
+        .post(this.authController.isLoggedIn, this.productController.addNewProduct);
 
-
+        app.route('/productos/:id')
+        .get(this.authController.isLoggedIn, this.productController.showProductsById)
+        .patch(this.authController.isLoggedIn, this.productController.updateProduct)
+        .delete(this.authController.isLoggedIn, this.productController.deleteProduct);
     }
     
 }

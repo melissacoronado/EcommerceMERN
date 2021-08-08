@@ -12,17 +12,27 @@ interface IAuth{
     registerUser(user: userDTO): void;
     encryptPassw(password: string): void;
     generateToken(email: string): string;
-    verifyToken(jwt: any): void;
+    invalidateToken(email: string): string;
+    verifyToken(jwt: any): any;
     isValidPassword(passw: string, user: userDTO): void;
+    logOutUser(tokenHeader: string): void;
 }
 
 export class AuthService implements IAuth{
     constructor(){}
 
-    verifyToken(jwt: any): void {
+    verifyToken(token: string): any {
         try {
-            const decoded = jwt.verify(jwt, process.env.TOKEN_KEY);
-            return decoded;
+            //const decoded = jwt.verify(token, process.env.TOKEN_KEY);
+            //return decoded;
+
+            jwt.verify(token, process.env.TOKEN_KEY, (err: any, user: any) => {
+                if (err){
+                    throw err;
+                }
+                return user;
+            });
+
         } catch (err) {
             throw err;
             //return res.status(401).send("Invalid Token");
@@ -30,13 +40,21 @@ export class AuthService implements IAuth{
     }
 
     generateToken(email: string): string {
-        const token = jwt.sign(
-                          { user_id: email },
-                          process.env.TOKEN_KEY,
-                          {
+        const token = jwt.sign({ 
+                        user_id: email },
+                        process.env.TOKEN_KEY, {
                             expiresIn: process.env.TOKEN_EXPIRES,
-                          }
-                        );
+                        });
+                        console.log(token);
+        return token;
+    }
+
+    invalidateToken(email: string): string {
+        const token = jwt.sign({ 
+                        user_id: email },
+                        process.env.TOKEN_KEY, {
+                            expiresIn: 1,
+                        });
         return token;
     }
 
@@ -52,20 +70,16 @@ export class AuthService implements IAuth{
         }
     }
 
-    /*createHash = function(password: string){
-        return bCrypt.hashSync(password, bCrypt.genSaltSync(10));
-    }*/
     encryptPassw = async (passw: string) => {
-        // generate salt to hash password
-        //const salt = await bcrypt.genSalt(10);
-        //return await bcrypt.hash(passw, salt);
         return await bcrypt.hash(passw, 10);
     }
 
     isValidPassword = async (passw: string, user: userDTO) => {
-        //return bCrypt.compare(passw, user.password);
-        //return await bcrypt.compare(passw, user.password);
         return await bcrypt.compare(passw, user.password);
+    }
+
+    logOutUser(email: string): string {        
+        return this.invalidateToken(email);
     }
 
 /*

@@ -8,7 +8,6 @@ export const passwmail = 'KM6YfTc6mYFygTp2eq';
 export const emailAdministrador = 'melissa_coronado@hotmail.com';
 
 export let puerto = process.env.PORT || 3001;
-console.log(puerto);
 
 http.listen(process.env.PORT || puerto, ()=> {
     console.log(`Servidor escuchando en puerto ${puerto} PID Worker ${process.pid}`)
