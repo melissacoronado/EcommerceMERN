@@ -6,7 +6,8 @@ const fs = require('fs');
 
 interface IUser{  
     //Metodos  
-    findUser(email: string): void;
+    findUserByEmail(email: string): void;
+    findUserById(id: string): void;
     newUser(user: userDTO): void;
 }
 
@@ -14,10 +15,15 @@ export class UserService implements  IUser{
 
   constructor(){}
 
-    findUser = async (mail: string) => {
+    findUserByEmail = async (mail: string) => {
         const user = await userModel.findOne({email: mail}).exec();
         return user;
     }
+
+    findUserById = async (id: string) => {
+      const user = await userModel.findOne({_id: id}).exec();
+      return user;
+  }
 
     findAll = async () => {
         return await userModel.find().exec();

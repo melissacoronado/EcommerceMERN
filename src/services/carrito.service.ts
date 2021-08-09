@@ -11,7 +11,7 @@ interface ICarrito{
     //Propiedades
     //listaProductos:productosDTO[]
     //Metodos    
-    showCarrito(): void;
+    showAllCarrito(): void;
     findCarritoByUser(idUsuario: string): void;
     existeProductoCarrito(idProducto: string, carrito: carritoDTO): void;
     addProductCarrito(productoAgregar: productosDTO, cantidad: number, idusuario: string): void;
@@ -24,7 +24,7 @@ interface ICarrito{
 export class CarritoService implements  ICarrito{
     //listaProductos:productosDTO[] = [];
 
-    showCarrito = async () => {
+    showAllCarrito = async () => {
         try{
             return await carritoModel.find().lean().exec();            
         }catch(error){
@@ -34,7 +34,7 @@ export class CarritoService implements  ICarrito{
 
     findCarritoByUser = async (idUsuario: string) => {
         try{
-           return await carritoModel.findOne({idUsuario: idUsuario}).exec();
+           return await carritoModel.findOne({idUsuario: idUsuario}).lean().exec();
         }catch(error){
             throw error
         }
@@ -42,15 +42,15 @@ export class CarritoService implements  ICarrito{
 
     existeProductoCarrito = async (idProducto: string, carrito: carritoDTO) => {
         try{
-            let indexProductoCarrito: number= 0;
+            let indexProductoCarrito: number = -1;
+
             carrito.productos.forEach(async element => {
-                if(element.idProducto == idProducto){
-                    const itemCarrito: itemCarritoDTO = new itemCarritoDTO(idProducto,element.cantidad,element.precio,element.total);
-                    //return itemCarrito;
-                    return indexProductoCarrito = carrito.productos.indexOf(itemCarrito);
+                if(element.idProducto.toString() === idProducto.toString()){
+                    indexProductoCarrito = carrito.productos.indexOf(element);
+                    return indexProductoCarrito;
                 }
             })
-            return -1;
+            return indexProductoCarrito;
         }catch(error){
             throw error
         }
@@ -74,73 +74,62 @@ export class CarritoService implements  ICarrito{
             let cartUser:carritoDTO = await this.findCarritoByUser(idusuario);
             if(cartUser)//Si el usuario ya tiene carrito
             {
-                //se verifican si los productos existentes tienen stock
-                cartUser.productos.forEach(async element => {
-                    //Verifico si producto agregar ya existe en el carrito
-                    var index = cartUser.productos.indexOf(element);//REVISAR BIEN
+                console.log(`Usuario tiene carrito`);                
+                //Verifico si producto agregar ya existe en el carrito
+                const index = await this.existeProductoCarrito(productoAgregar._id!, cartUser);
+                if(index >= 0){ //Si ya existe
+                    //Obtengo los datos del c/producto existentes en el carrito por si cambio stock
+                    let prodExistenteAgregarCarrito:productosDTO = await ProductsService.showProductById(cartUser.productos[index].idProducto);  
 
-                    //Obtengo los datos del productos existentes en el carrito
-                    let prodAgregarCarrito:productosDTO = await ProductsService.showProductById(element.idProducto);
                     //Si actualmente no tiene stock lo saco del carrito
-                    if(prodAgregarCarrito.stock == 0){                        
+                    if(prodExistenteAgregarCarrito.stock == 0){                                                  
                         cartUser.productos = cartUser.productos.splice(index, 1);
+                        console.log(cartUser.productos);
                     }
-                    //Si producto ya estaba en el carrito actualizo los datos
-                    if(productoAgregar.codigo == prodAgregarCarrito.codigo){
-                        cartUser.productos[index].cantidad = cartUser.productos[index].cantidad + cantidad;
-                        cartUser.productos[index].total = cartUser.productos[index].cantidad * prodAgregarCarrito.precio;
-                        cartUser.productos[index].precio = prodAgregarCarrito.precio;
-                        //restar stock
-                        prodAgregarCarrito.stock = prodAgregarCarrito.stock - cantidad;
-                        await ProductsService.updateProduct(prodAgregarCarrito.codigo, prodAgregarCarrito);
-                    }
+ 
+                    //Actualizo los datos del producto ya existente
+                    cartUser.productos[index].cantidad = parseInt(cartUser.productos[index].cantidad.toString()) + parseInt(cantidad.toString());
+                    cartUser.productos[index].total = parseInt(cartUser.productos[index].cantidad.toString()) * parseInt(prodExistenteAgregarCarrito.precio.toString());
+                    cartUser.productos[index].precio = prodExistenteAgregarCarrito.precio;
+                    //restar stock
+                    prodExistenteAgregarCarrito.stock = prodExistenteAgregarCarrito.stock - cantidad;
+                    await ProductsService.updateProduct(prodExistenteAgregarCarrito._id!, prodExistenteAgregarCarrito);                        
+                }else{ //Si producto no existe se agrega                    
+                    //Obtengo los datos del c/producto existentes en el carrito por si cambio stock
+                    let prodExistenteAgregarCarrito:productosDTO = await ProductsService.showProductById(productoAgregar._id!);  
                     //Verifico si hay cantidad > 0 en stock para agregar producto
-                    if(prodAgregarCarrito.stock > 0){
-                        cartUser.productos.push({
-                            idProducto: productoAgregar.codigo,
-                            cantidad: cantidad,
-                            precio: prodAgregarCarrito.precio,
-                            total: prodAgregarCarrito.precio * cantidad
-                        })
-                    }
-                    //Se aactualiza el carrito
-                    return await carritoModel.updateOne({idUsuario: idusuario}, { $set:{
-                            productos: cartUser.productos
+                    if(prodExistenteAgregarCarrito.stock > 0){
+                        if(cantidad > prodExistenteAgregarCarrito.stock){
+                            throw new Error(`No hay suficiente stock producto ${prodExistenteAgregarCarrito.nombre}, disponibles: ${prodExistenteAgregarCarrito.stock}`);
+                        }else{
+                            cartUser.productos.push({
+                                idProducto: productoAgregar._id!,
+                                cantidad: parseInt(cantidad.toString()),
+                                precio: parseInt(prodExistenteAgregarCarrito.precio.toString()),
+                                total: parseInt(prodExistenteAgregarCarrito.precio.toString()) * parseInt(cantidad.toString())
+                            })
                         }
-                    })
-                    .then(() => console.log("Carrito Actualizado correctamente!"))
-                    .catch( (err: any) => console.log(err));                    
-                });
-
+                    }
+                }
             }else{
+                console.log(`Usuario no tiene carrito`);
                 //Si el usuario no tiene carrito
+                const itemCarrito: itemCarritoDTO = new itemCarritoDTO(productoAgregar._id!, parseInt(cantidad.toString()), parseInt(productoAgregar.precio.toString()), parseInt(productoAgregar.precio.toString()) * parseInt(cantidad.toString()));
+                const itemsCarritoArray: itemCarritoDTO[] = [];
+                itemsCarritoArray.push(itemCarrito);
+                
                 const newCartuser = {
                     idUsuario: idusuario,
-                    productos: [{
-                        idProducto: productoAgregar.codigo,
-                        cantidad: cantidad,
-                        precio: productoAgregar.precio,
-                        total: productoAgregar.precio * cantidad
-                    }]
+                    productos: itemsCarritoArray
                 }
                 const newCart = await this.addCarrito(newCartuser);
-                //restar Stock
-                let prodAgregarCarrito:productosDTO = await ProductsService.showProductById(productoAgregar.codigo);
-                prodAgregarCarrito.stock = prodAgregarCarrito.stock - cantidad;
-                await ProductsService.updateProduct(productoAgregar.codigo, prodAgregarCarrito);
+                //restar Stock                
+                productoAgregar.stock = parseInt(productoAgregar.stock.toString()) - parseInt(cantidad.toString());
+                await ProductsService.updateProduct(productoAgregar._id!, productoAgregar);
+                return newCart;
             }
-
-            /*let totalItemProd: number = cantidad * productoAgregar.precio;            
-            const item: itemCarritoDTO = new itemCarritoDTO(productoAgregar.codigo, cantidad, productoAgregar.precio, totalItemProd);
-            arrItemsCarrito.push(item);
-
-            const carrito: carritoDTO = new carritoDTO(idusuario, arrItemsCarrito);
-
-            const newProdCarrito = new carritoModel(carrito);
-            await newProdCarrito.save()
-            .then(() => console.log("Producto agregado al carrito"))
-            .catch( (err: any) => console.log(err));*/
-
+            await this.updateCarrito(idusuario, cartUser);           
+            
         }catch(error){            
             throw error
         }

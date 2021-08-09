@@ -10,7 +10,7 @@ export class RoutesCarrito {
     public routes(app: Application): void {   
         
         app.route('/carrito')
-        //.get(this.authController.isLoggedIn, this.cartController.showCarrito)
+        .get(this.authController.isLoggedIn, this.cartController.showAllCarrito)
         .post(this.authController.isLoggedIn, this.cartController.addproductoCarrito)
         .delete(this.authController.isLoggedIn, this.cartController.deleteProductCarrito);
 

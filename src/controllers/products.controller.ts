@@ -11,19 +11,8 @@ export class ProductController{
         if (!(nombre && codigo && precio && stock)) {
             res.status(400).send("Datos requeridos: nombre, código, precio, stock.");
         }       
-        var foto:Array<string> = new Array<string>();
-        //console.log(fotos); 
-        fotos.forEach((arrElement:string) => {
-            foto.push(arrElement);
-            //console.log(arrElement)
-        });
-        //console.log(fotos[0]); 
-        //let foto = JSON.parse(fotos);
-        //foto = prodsFotos.split(',');  
-        //console.log(foto);      
 
-        const newProduct = { timestamp, nombre, descripcion, codigo, foto, precio, stock }
-        await ProductsService.addProduct(newProduct)       
+        await ProductsService.addProduct(req.body)       
         res.status(200).json('Producto almacenado con exito');
     }
 

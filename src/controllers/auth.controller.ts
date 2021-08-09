@@ -16,7 +16,7 @@ export class AuthController{
         }
 
         //Chequear si usuario existe
-        let userExits = await userService.findUser(email); 
+        let userExits = await userService.findUserByEmail(email); 
         console.log(userExits);  
         if (userExits) {
             return res.status(409).send("Usuario existe, Por favor inicie sesión.");
@@ -39,7 +39,7 @@ export class AuthController{
                 res.status(400).send("Es obligatorio Email y password");
             }
 
-            const user:userDTO = await userService.findUser(email);
+            const user:userDTO = await userService.findUserByEmail(email);
             if (user ){
                 if (await authService.isValidPassword(password, user)) {
                     const token =  authService.generateToken(user.email);   

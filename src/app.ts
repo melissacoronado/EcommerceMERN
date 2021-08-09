@@ -3,26 +3,27 @@ import express, {Application, Request, Response} from 'express'
 import cookieParser from 'cookie-parser';
 const MongoStore = require('connect-mongo');
 import { RoutesProductos } from "./routes/productos.route";
-import path, { join } from 'path'
 import { RoutesAuth } from './routes/auth.routes';
+import { RoutesCarrito } from './routes/carrito.route';
 const db = require('./services/mongoDB')
 const expressSession = require("express-session");
 export const passport = require("passport");
-
 //export const log4js = require('log4js')
 
 
 class App {
 
     public app: express.Application = express();
-    public routePrv: RoutesProductos = new RoutesProductos();
+    public routePrd: RoutesProductos = new RoutesProductos();
     public routeAuth: RoutesAuth = new RoutesAuth();
+    public routeCarrito: RoutesCarrito = new RoutesCarrito();
 
     constructor() {
         this.config();
         //this.logs(); 
-        this.routePrv.routes(this.app);   
+        this.routePrd.routes(this.app);   
         this.routeAuth.routes(this.app); 
+        this.routeCarrito.routes(this.app); 
     }
 
     private config(): void{

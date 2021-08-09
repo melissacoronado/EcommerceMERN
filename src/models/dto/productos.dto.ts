@@ -1,4 +1,5 @@
 export class productosDTO {
+    _id?: string;
     timestamp: Date;
     nombre: string;
     descripcion?: string;
@@ -7,7 +8,8 @@ export class productosDTO {
     precio: number;
     stock: number;
 
-    constructor(timestamp: Date, nombre: string, codigo: string, foto: string[], precio: number, stock: number, descripcion?: string){
+    constructor(id: string, timestamp: Date, nombre: string, codigo: string, foto: string[], precio: number, stock: number, descripcion?: string){
+        this._id = id;
         this.timestamp = timestamp;
         this.nombre = nombre;
         this.descripcion = descripcion;
