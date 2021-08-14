@@ -1,6 +1,5 @@
 # EcommerceMERN
 Proyecto Final Curso Backend CoderHouse
-Desafio36 - Tercera Entrega proyecto Final
 >> Consigna:
 >>Se debe entregar:
 

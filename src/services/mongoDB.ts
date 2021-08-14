@@ -1,15 +1,16 @@
 import mongoose from 'mongoose';
+import { configSystem } from '../config/configs';
   // BRING IN YOUR SCHEMAS & MODELS
   require('../models/schemas/productos.schema');
   require('../models/schemas/users.schema');
   require('../models/schemas/auth.schema');
 
-//var dbURI = 'mongodb+srv://mcoronado:Europe03**@cluster0.ra8rh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'; 
-var dbURI = 'mongodb+srv://mcoronado:Europe03**@cluster0.ra8rh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+
+const dbURI: string = configSystem.DB_URI!;
 mongoose.connect(dbURI,
     {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
+        useNewUrlParser: (/true/i).test(configSystem.DB_USE_NEW_URL_PARSER!),
+        useUnifiedTopology: (/true/i).test(configSystem.DB_USE_UNIFIED_TOPOLOGY!)
     }, error => {
         if (error) throw new Error(`Error en la conexión a la BD ${error}`)
         console.log(error)

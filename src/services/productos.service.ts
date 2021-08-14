@@ -1,6 +1,6 @@
 import { productosDTO } from '../models/dto/productos.dto';
 import { productosModel } from '../models/schemas/productos.schema'
-
+import { logger, loggerError } from '../helper/logger';
 
 
 interface IProducto{  
@@ -55,8 +55,8 @@ export class ProductosService implements  IProducto{
         try{            
             const newProd = new productosModel(producto)
             await newProd.save()
-            .then(() => console.log("Producto Guardado"))
-            .catch( (err: any) => console.log(err));
+            .then(() => logger.info(`Carrito eliminado`))
+            .catch( (err: any) => loggerError.error(err));
 
         }catch(error){            
             throw error
@@ -75,8 +75,8 @@ export class ProductosService implements  IProducto{
                 stock: prodDto.stock
                 }
             })
-            .then(() => console.log("Producto Actualizado"))
-            .catch( (err: any) => console.log(err));
+            .then(() => logger.info(`Carrito eliminado`))
+            .catch( (err: any) => loggerError.error(err));
 
         }catch(error){
             throw error
@@ -86,7 +86,7 @@ export class ProductosService implements  IProducto{
     deleteProduct = async (idProd: string) => {
         try{
             await productosModel.deleteOne({_id: idProd});
-            console.log("Producto Eliminado");
+            logger.info(`Producto Eliminado`)
         }catch(error){
             throw error
         }

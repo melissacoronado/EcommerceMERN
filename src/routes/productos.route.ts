@@ -1,4 +1,4 @@
-import express, {Application, Request, Response, NextFunction } from 'express'
+import {Application} from 'express'
 import { ProductController } from "../controllers/products.controller";
 import { AuthController } from '../controllers/auth.controller'
 

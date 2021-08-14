@@ -1,9 +1,9 @@
+import { configSystem } from "../config/configs";
 import { userDTO } from "../models/dto/user.dto";
 import { UserService } from "./user.service";
-//import * as bCrypt from 'bcrypt';
-const bcrypt = require('bcrypt');
-const jwt = require("jsonwebtoken");
-require('dotenv').config()
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+
 
 let UsersService = new UserService()
 
@@ -23,10 +23,7 @@ export class AuthService implements IAuth{
 
     verifyToken(token: string): any {
         try {
-            //const decoded = jwt.verify(token, process.env.TOKEN_KEY);
-            //return decoded;
-
-            jwt.verify(token, process.env.TOKEN_KEY, (err: any, user: any) => {
+            jwt.verify(token, configSystem.TOKEN_KEY!, (err: any, user: any) => {
                 if (err){
                     throw err;
                 }
@@ -35,24 +32,23 @@ export class AuthService implements IAuth{
 
         } catch (err) {
             throw err;
-            //return res.status(401).send("Invalid Token");
         }
     }
 
     generateToken(email: string): string {
         const token = jwt.sign({ 
                         user_id: email },
-                        process.env.TOKEN_KEY, {
-                            expiresIn: process.env.TOKEN_EXPIRES,
+                        configSystem.TOKEN_KEY!, {
+                            expiresIn: configSystem.TOKEN_EXPIRES,
                         });
-                        console.log(token);
+                        //console.log(token);
         return token;
     }
 
     invalidateToken(email: string): string {
         const token = jwt.sign({ 
                         user_id: email },
-                        process.env.TOKEN_KEY, {
+                        configSystem.TOKEN_KEY!, {
                             expiresIn: 1,
                         });
         return token;
@@ -80,21 +76,5 @@ export class AuthService implements IAuth{
 
     logOutUser(email: string): string {        
         return this.invalidateToken(email);
-    }
-
-/*
-    newUser = async (newUser: userDTO) => {
-        try{
-            newUser.password = await this.encryptPassw(newUser.password);
-            let user = await this.findUser(newUser.email, newUser.password);
-            if (user && user.length == 0) {   
-                const user = await UserService.newUser(newUser); 
-            }        
-        }catch(error){
-            throw error
-        }
-    }*/
-
-
-    
+    }    
 }

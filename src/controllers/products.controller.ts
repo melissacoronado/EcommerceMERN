@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { productosDTO } from '../models/dto/productos.dto';
 import { ProductosService } from '../services/productos.service';
+import { logger, loggerError } from '../helper/logger';
 
 let ProductsService = new ProductosService()
 
@@ -36,7 +37,7 @@ export class ProductController{
             }  
             res.status(200).json(product);
         }catch(error){  
-            console.log(error);          
+            loggerError.error(error);        
             res.status(500).json({Respuesta: "Error de sistema!"}) 
         }
     }
@@ -61,7 +62,7 @@ export class ProductController{
             
             res.status(200).json({Respuesta: "Producto Modificado!"}) 
         }catch(error){  
-            console.log(error);          
+            loggerError.error(error);    
             res.status(500).json({Respuesta: "Error de sistema!"}) 
         }
     }
@@ -78,7 +79,7 @@ export class ProductController{
             await ProductsService.deleteProduct(id)
             res.status(200).send('Producto Eliminado.')  
         }catch(error){  
-            console.log(error);          
+            loggerError.error(error);    
             res.status(500).json({Respuesta: "Error de sistema!"}) 
         }
     }

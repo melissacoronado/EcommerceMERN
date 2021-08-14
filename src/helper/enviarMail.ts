@@ -1,25 +1,26 @@
-const nodemailer = require('nodemailer')
-import { usuariomail, passwmail } from '../server'
+import nodemailer from 'nodemailer';
+import { configSystem } from '../config/configs';
+import { logger, loggerError } from '../helper/logger';
+
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
-    secure: false,     // Agregale esta linea
+    host: configSystem.HOST_MAIL,
+    port: Number(configSystem.PORT_MAIL),
+    secure: (/true/i).test(configSystem.SECURE_MAIL!),
     auth: {
-        user: usuariomail,
-        pass: passwmail
+      user: configSystem.USER_MAIL,
+      pass: configSystem.PASS_MAIL,
     },
-    tls : { rejectUnauthorized: false }
-});
-
+    tls : { rejectUnauthorized: (/true/i).test(configSystem.REJECT_UNAUTHORIZED_MAIL!) }
+  });
 
 export const sendMail = (mailOptions: any) => {
     transporter.sendMail(mailOptions, (err: any, info: any) => {
         if(err) {
-            console.log(`error transporter.sendMail: ${err}`)
+            loggerError.error(`error transporter.sendMail: ${err} `);
             return err
         }
-        console.log(info)
+        //logger.info(info);
     })
 }
 
@@ -27,10 +28,10 @@ export const sendMail = (mailOptions: any) => {
 const transporterGmail = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'pruebasd03@gmail',
-        pass: '1592630*'
+        user: configSystem.USER_GMAIL,
+        pass: configSystem.PASS_GMAIL
     }
-    , secure: false     // Agregale esta linea
+    , secure: false
     , tls : { rejectUnauthorized: false }
 });
 
@@ -38,9 +39,9 @@ export const sendGMail = (mailOptions: any) => {
     //console.log('sendGMail')
     transporterGmail.sendMail(mailOptions, (err: any, info: any) => {
         if(err) {
-            console.log(`error transporter.sendGMail: ${err}`)
+            loggerError.error(`error transporter.sendGMail: ${err} `);
             return err
         }
-        //console.log(info)
+        //logger.info(info);
     })
 }

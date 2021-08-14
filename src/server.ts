@@ -1,16 +1,19 @@
-
+import { configSystem } from './config/configs';
+import { logger, loggerError, loggerWarn } from './helper/logger';
 import app from './app';
-require('dotenv').config()
-const http = require('http').Server(app);
+import * as http from 'http';
+var server = http.createServer(app);
 
-export const usuariomail = 'donnell.prosacco36@ethereal.email';
-export const passwmail = 'KM6YfTc6mYFygTp2eq';
-export const emailAdministrador = 'melissa_coronado@hotmail.com';
+export const usuariomail = configSystem.USER_MAIL;
+export const passwmail = configSystem.PASS_MAIL;
 
-export let puerto = process.env.PORT || 3001;
+export let puerto = configSystem.PORT || 3001;
 
-http.listen(process.env.PORT || puerto, ()=> {
-    console.log(`Servidor escuchando en puerto ${puerto} PID Worker ${process.pid}`)
+server.listen(puerto, ()=> {
+    loggerError.error(`Prueba logger Error ${puerto} PID`);
+    //loggerWarn.warn(`Servidor escuchando en puerto ${puerto} PID Worker ${process.pid}`);
+    //logger.info(`Servidor escuchando en puerto ${puerto} PID Worker ${process.pid}`);
+
 }).on("error", (err: any)=>{
     console.log(err)
 })

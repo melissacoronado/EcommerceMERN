@@ -1,8 +1,8 @@
 import { userDTO } from "../models/dto/user.dto"
 import { userModel } from '../models/schemas/users.schema'
-import * as bCrypt from 'bcrypt';
 import { join } from "path";
-const fs = require('fs');
+import fs from 'fs';
+import { logger, loggerError } from '../helper/logger';
 
 interface IUser{  
     //Metodos  
@@ -33,17 +33,17 @@ export class UserService implements  IUser{
       try{
         const newUser = new userModel(user);
         await newUser.save()
-        .then(() => console.log("Usuario Guardado"))
-        .catch( (err: any) => console.log(err));
+        .then(() => logger.info(`Usuario Guardado`))
+        .catch( (err: any) => loggerError.error(err));
                       
           //copiar foto avatar
           let ext = user.avatar.split('.');
           fs.copyFile(user.avatar, join(__dirname, '../..',`/public/avatar/${user.nombre}${user.apellido}.${ext[ext.length-1]}`), (err: any) => {
             if (err) {
-              console.log("Error Found:", err);
+              loggerError.error(`Error Found: ${err}`)
             }
-            else {          
-              console.log("\nFoto avatar copiado");
+            else {    
+              loggerError.error("\nFoto avatar copiado");
             }
           });
 

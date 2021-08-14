@@ -1,4 +1,4 @@
-import express, {Application, Request, Response, NextFunction } from 'express'
+import {Application } from 'express'
 import { AuthController } from "../controllers/auth.controller";
 import { CarritoController } from '../controllers/carrito.controller';
 

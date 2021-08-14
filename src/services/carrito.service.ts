@@ -3,6 +3,7 @@ import { itemCarritoDTO } from '../models/dto/itemCarrito.dto';
 import { productosDTO } from '../models/dto/productos.dto';
 import { carritoModel } from '../models/schemas/carrito.schema'
 import { ProductosService } from './productos.service';
+import { logger, loggerError, loggerWarn } from '../helper/logger';
 
 let ProductsService = new ProductosService()
 
@@ -60,8 +61,8 @@ export class CarritoService implements  ICarrito{
         try{            
             const newCarrito= new carritoModel(carrito)
             await newCarrito.save()
-            .then(() => console.log("Carrito agregado a Usuario"))
-            .catch( (err: any) => console.log(err));
+            .then(() => logger.info("Carrito agregado a Usuario"))
+            .catch( (err: any) => loggerError.error(err));
 
         }catch(error){            
             throw error
@@ -74,7 +75,7 @@ export class CarritoService implements  ICarrito{
             let cartUser:carritoDTO = await this.findCarritoByUser(idusuario);
             if(cartUser)//Si el usuario ya tiene carrito
             {
-                console.log(`Usuario tiene carrito`);                
+                logger.info(`Usuario tiene carrito`)               
                 //Verifico si producto agregar ya existe en el carrito
                 const index = await this.existeProductoCarrito(productoAgregar._id!, cartUser);
                 if(index >= 0){ //Si ya existe
@@ -84,7 +85,7 @@ export class CarritoService implements  ICarrito{
                     //Si actualmente no tiene stock lo saco del carrito
                     if(prodExistenteAgregarCarrito.stock == 0){                                                  
                         cartUser.productos = cartUser.productos.splice(index, 1);
-                        console.log(cartUser.productos);
+                        loggerWarn.warn(`prodExistenteAgregarCarrito.stock == 0 ${cartUser.productos}`)  
                     }
  
                     //Actualizo los datos del producto ya existente
@@ -112,7 +113,7 @@ export class CarritoService implements  ICarrito{
                     }
                 }
             }else{
-                console.log(`Usuario no tiene carrito`);
+                logger.info(`Usuario no tiene carrito`)    
                 //Si el usuario no tiene carrito
                 const itemCarrito: itemCarritoDTO = new itemCarritoDTO(productoAgregar._id!, parseInt(cantidad.toString()), parseInt(productoAgregar.precio.toString()), parseInt(productoAgregar.precio.toString()) * parseInt(cantidad.toString()));
                 const itemsCarritoArray: itemCarritoDTO[] = [];
@@ -138,7 +139,7 @@ export class CarritoService implements  ICarrito{
     deleteCarrito = async (idusuario: string) => {
         try{
             await carritoModel.deleteOne({idUsuario: idusuario});
-            console.log("Carrito eliminado");
+            logger.info(`Carrito eliminado`);
         }catch(error){
             throw error
         }
@@ -150,8 +151,8 @@ export class CarritoService implements  ICarrito{
                     productos: carrito.productos
                 }
             })
-            .then(() => console.log("Carrito Actualizado"))
-            .catch( (err: any) => console.log(err));
+            .then(() => logger.info(`Carrito eliminado`))
+            .catch( (err: any) => loggerError.error(err));
 
         }catch(error){
             throw error

@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
 import { carritoDTO } from '../models/dto/carrito.dto';
-//import { itemCarritoDTO } from '../models/dto/itemCarrito.dto';
 import { userDTO } from '../models/dto/user.dto';
 import { productosDTO } from '../models/dto/productos.dto';
 import { CarritoService } from '../services/carrito.service';
 import { ProductosService } from '../services/productos.service';
 import { UserService } from '../services/user.service';
+import { logger, loggerError } from '../helper/logger';
 
 let CartService = new CarritoService()
 let ProductoService = new ProductosService()
@@ -22,7 +22,7 @@ export class CarritoController{
                 res.status(200).json(carrito);
             }       
         }catch(error){  
-            console.log(error);          
+            loggerError.error(error);       
             res.status(500).json({Respuesta: "Error de sistema!"}) 
         } 
     }
@@ -38,7 +38,7 @@ export class CarritoController{
                 res.status(200).json(carrito);
             }
         }catch(error){  
-            console.log(error);          
+            loggerError.error(error);          
             res.status(500).json({Respuesta: "Error de sistema!"}) 
         }
     }
@@ -77,7 +77,7 @@ export class CarritoController{
             
             res.status(200).json({Resultado: "Carrito creado/actualizado con éxito.", Carrito: carritoCreado});   
         }catch(error){  
-            console.log(error);          
+            loggerError.error(error);         
             res.status(500).json({Respuesta: "Error de sistema!"}) 
         }  
     }
@@ -94,7 +94,7 @@ export class CarritoController{
             await CartService.deleteCarrito(idUsuario)
             res.status(200).send('Carrito Eliminado.')  
         }catch(error){  
-            console.log(error);          
+            loggerError.error(error);     
             res.status(500).json({Respuesta: "Error de sistema!"}) 
         }
     }
@@ -125,7 +125,7 @@ export class CarritoController{
 
             res.status(200).send('Producto eliminado de Carrito.')  
         }catch(error){  
-            console.log(error);          
+            loggerError.error(error);         
             res.status(500).json({Respuesta: "Error de sistema!"}) 
         }
     }

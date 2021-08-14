@@ -1,19 +1,22 @@
 import { configure, getLogger } from 'log4js';
+import path from 'path';
 
 configure({
     appenders: {
       consolelog: { type: "console" },
-      warnlog: { type: 'file', filename: 'warn.log' },
-      errorLog: { type: 'file', filename: 'error.log' }
+      warnlog: { type: 'file', filename: path.resolve(__dirname, '../', 'logs/warn.log') },
+      errorLog: { type: 'file', filename: path.resolve(__dirname, '../', 'logs/error.log') }
     },
     categories: {
       default: { appenders: ["consolelog"], level: "trace" },
-      archivo: { appenders: ["warnlog"], level: "warn" },
-      archivo2: { appenders: ["errorLog"], level: "error" },
+      archivoWarn: { appenders: ["warnlog"], level: "warn" },
+      archivoError: { appenders: ["errorLog"], level: "error" },
       todos: { appenders: ["consolelog", "warnlog", "errorLog"], level: "error" }
     }
   });
 
+
+
   export const logger = getLogger();
-  export const loggerError = getLogger('archivo2');
-  export const loggerWarn = getLogger('archivo');
+  export const loggerError = getLogger('archivoError');
+  export const loggerWarn = getLogger('archivoWarn');

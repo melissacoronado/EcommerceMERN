@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { UserService } from '../services/user.service';
 import { AuthService } from '../services/auth.service';
 import { userDTO } from '../models/dto/user.dto'
+import { logger, loggerError } from '../helper/logger';
 
 let userService = new UserService();
 let authService = new AuthService();
@@ -17,7 +18,6 @@ export class AuthController{
 
         //Chequear si usuario existe
         let userExits = await userService.findUserByEmail(email); 
-        console.log(userExits);  
         if (userExits) {
             return res.status(409).send("Usuario existe, Por favor inicie sesión.");
         }
@@ -27,7 +27,6 @@ export class AuthController{
 
         if(registredUser){
             let token: string = authService.generateToken(registredUser.email);
-            //res.status(201).json(registredUser);
             res.header("x-auth-token", token).status(201).json({Resultado: 'Usuario creado correctamente', jwt: token});
         }
     }
@@ -42,8 +41,7 @@ export class AuthController{
             const user:userDTO = await userService.findUserByEmail(email);
             if (user ){
                 if (await authService.isValidPassword(password, user)) {
-                    const token =  authService.generateToken(user.email);   
-                    //0..console.log(await authService.verifyToken(token));                       
+                    const token =  authService.generateToken(user.email);                         
                     res.header("x-auth-token", token).status(201).json({Resultado: 'Inicio de sesión Exitoso!', jwt: token});
                 }else{
                     res.status(401).send("Credenciales inválidas");
@@ -54,7 +52,7 @@ export class AuthController{
             
         }
         catch (err) {
-            console.log(err);
+            loggerError.error(err);
         }
     }
 
@@ -69,7 +67,7 @@ export class AuthController{
             next();            
 
           } catch (err) {
-              console.log('isLoggedIn ' +err);
+            loggerError.error(err);
             return res.status(401).send("Token inválido");
           }
     }
@@ -81,32 +79,13 @@ export class AuthController{
             const tkn = await authService.verifyToken(tokenHeader);
             
             const msjLogOut = await authService.logOutUser(tkn.user_id);  
-            console.log(await authService.verifyToken(tokenHeader));
+            logger.info(`logOutUser ${await authService.verifyToken(tokenHeader)} `);
 
             res.status(200).send("Sesión Finalizada");
         }
         catch (err) {
-            console.log(err);
+            loggerError.error(err);
         }
     }
-
-    //van?
-    /*public async findUser (req: Request, res: Response) {                
-        const { email, password } = req.body  
-
-        const user = await userService.findUser(email)
-        res.status(200).json(user) 
-        //res.render('partials/main', {layout : 'home', user: user.email });
-    }
-
-    public async addNewUser (req: Request, res: Response) {                
-        const { nombre, apellido, email, password, direccion, edad, telefono, avatar } = req.body  
-        //Falta validar que vengan todos los parametros              
-        const newUser = new userDTO( nombre, apellido, email, password, direccion, edad, telefono, avatar)
-        const userCreated = await userService.newUser(newUser)       
-        res.status(200).json('Inicio Sesión correcto') 
-        //res.render('partials/main', {layout : 'home', user: newUser.email });
-    }*/
-
     
 }

@@ -1,14 +1,14 @@
 
-import express, {Application, Request, Response} from 'express'
+import express, {RequestHandler} from 'express'
 import cookieParser from 'cookie-parser';
-const MongoStore = require('connect-mongo');
 import { RoutesProductos } from "./routes/productos.route";
 import { RoutesAuth } from './routes/auth.routes';
 import { RoutesCarrito } from './routes/carrito.route';
-const db = require('./services/mongoDB')
-const expressSession = require("express-session");
-export const passport = require("passport");
-//export const log4js = require('log4js')
+import { configSystem } from './config/configs';
+import expressSession from 'express-session';
+import passport from 'passport';
+//import * as db from './services/mongoDB';
+const db = require('./services/mongoDB');//Este lo dejo xq sino no me toma la config db
 
 
 class App {
@@ -20,7 +20,6 @@ class App {
 
     constructor() {
         this.config();
-        //this.logs(); 
         this.routePrd.routes(this.app);   
         this.routeAuth.routes(this.app); 
         this.routeCarrito.routes(this.app); 
@@ -28,27 +27,20 @@ class App {
 
     private config(): void{
         this.app.use('/api', express.static(__dirname+ '..'+ '/public')); //Al principio
-        this.app.use(express.json())
-        this.app.use(express.urlencoded({extended: true}))
+        this.app.use(express.json() as RequestHandler)
+        this.app.use(express.urlencoded({extended: true}) as RequestHandler)
 
         this.app.use(cookieParser());
 
-        const session = {
-            secret: process.env.SESSION_SECRET,
-            cookie: {},
-            resave: false,
-            saveUninitialized: false
-          };          
-
-          this.app.use(expressSession({            
-            secret: 's3cr3t',
+        this.app.use(expressSession({            
+            secret: configSystem.SESSION_SECRET_SECRET!,
             resave: false,
             saveUninitialized: false,
             rolling: true,
             cookie: {
-                maxAge: 600000
+                maxAge: Number(configSystem.SESSION_SECRET_COOKIE_MAXAGE)
             }
-          }));
+        }));
 
           this.app.use(passport.initialize());
           this.app.use(passport.session());
