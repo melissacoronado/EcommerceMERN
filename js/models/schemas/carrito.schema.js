@@ -19,38 +19,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userModel = exports.userSchema = void 0;
+exports.carritoModel = exports.CarritoSchema = void 0;
 const mongoose = __importStar(require("mongoose"));
-const userCollection = 'users';
-exports.userSchema = new mongoose.Schema({
-    email: {
+const direccionEntrega_schema_1 = require("./direccionEntrega.schema");
+const itemSchema_1 = require("./itemSchema");
+const carritoCollection = 'carrito';
+exports.CarritoSchema = new mongoose.Schema({
+    idUsuario: {
         type: String,
-        required: 'Ingrese email'
+        required: 'IdUsuario requerido'
     },
-    password: {
-        type: String,
-        required: 'Ingrese contraseña'
-    },
-    nombre: {
-        type: String,
-        required: 'Ingrese Nombre'
-    },
-    apellido: {
-        type: String,
-        required: 'Ingrese Apellido'
-    },
-    direccion: {
-        type: String
-    },
-    edad: {
-        type: String
-    },
-    telefono: {
-        type: String,
-        required: 'Ingrese Teléfono'
-    },
-    avatar: {
-        type: String
-    }
+    productos: [itemSchema_1.ItemCarritoSchema],
+    direccionEntrega: direccionEntrega_schema_1.DireccionEntregaCarritoSchema,
+    timestamp: Date
 });
-exports.userModel = mongoose.model(userCollection, exports.userSchema);
+exports.carritoModel = mongoose.model(carritoCollection, exports.CarritoSchema);

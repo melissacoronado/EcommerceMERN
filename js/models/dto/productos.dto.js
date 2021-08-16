@@ -2,7 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.productosDTO = void 0;
 class productosDTO {
-    constructor(timestamp, nombre, codigo, foto, precio, stock, descripcion) {
+    constructor(id, timestamp, nombre, codigo, foto, precio, stock, categoria, descripcion) {
+        this._id = id;
         this.timestamp = timestamp;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -10,6 +11,7 @@ class productosDTO {
         this.foto = foto;
         this.precio = precio;
         this.stock = stock;
+        this.categoria = categoria;
     }
 }
 exports.productosDTO = productosDTO;

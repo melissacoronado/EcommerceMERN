@@ -4,15 +4,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
+const configs_1 = require("../config/configs");
 // BRING IN YOUR SCHEMAS & MODELS
 require('../models/schemas/productos.schema');
 require('../models/schemas/users.schema');
 require('../models/schemas/auth.schema');
-//var dbURI = 'mongodb+srv://mcoronado:Europe03**@cluster0.ra8rh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'; 
-var dbURI = 'mongodb+srv://mcoronado:Europe03**@cluster0.ra8rh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const dbURI = configs_1.configSystem.DB_URI;
 mongoose_1.default.connect(dbURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+    useNewUrlParser: (/true/i).test(configs_1.configSystem.DB_USE_NEW_URL_PARSER),
+    useUnifiedTopology: (/true/i).test(configs_1.configSystem.DB_USE_UNIFIED_TOPOLOGY)
 }, error => {
     if (error)
         throw new Error(`Error en la conexión a la BD ${error}`);

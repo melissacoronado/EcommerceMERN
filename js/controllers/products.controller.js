@@ -11,15 +11,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductController = void 0;
 const productos_service_1 = require("../services/productos.service");
+const logger_1 = require("../helper/logger");
 let ProductsService = new productos_service_1.ProductosService();
 class ProductController {
     addNewProduct(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { timestamp, nombre, descripcion, codigo, foto, precio, stock } = req.body;
-            //Falta validar que vengan todos los parametros              
-            const newProduct = { timestamp, nombre, descripcion, codigo, foto, precio, stock };
-            yield ProductsService.addProduct(newProduct);
-            res.render('partials/main', { layout: 'home', ListaProductos: ProductsService.listaProductos });
+            try {
+                const { timestamp, nombre, descripcion, categoria, codigo, fotos, precio, stock } = req.body;
+                if (!(nombre && codigo && precio && stock && categoria)) {
+                    res.status(400).send("Datos requeridos: nombre, categoria, código, precio, stock.");
+                }
+                yield ProductsService.addProduct(req.body);
+                res.status(201).json('Producto almacenado con exito');
+            }
+            catch (error) {
+                logger_1.loggerError.error(error);
+                res.status(500).json({ Respuesta: "Error de sistema!" });
+            }
         });
     }
     showProducts(req, res) {
@@ -30,7 +38,63 @@ class ProductController {
                 return;
             }
             else {
-                res.render('partials/main', { layout: 'home', ListaProductos: products });
+                res.status(200).json(products);
+            }
+        });
+    }
+    showProductsById(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const id = req.params.id; //Viene de la url/1 y el + para parsear a numero  
+                const product = yield ProductsService.showProductById(id);
+                if (!product) {
+                    res.status(404).json({ error: 'Producto no encontrado.' });
+                }
+                res.status(200).json(product);
+            }
+            catch (error) {
+                logger_1.loggerError.error(error);
+                res.status(500).json({ Respuesta: "Error de sistema!" });
+            }
+        });
+    }
+    updateProduct(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const id = req.params.id; //Viene de la url/1 y el + para parsear a numero  
+                const product = yield ProductsService.showProductById(id);
+                if (!product) {
+                    res.status(404).json({ error: 'Producto no encontrado.' });
+                }
+                const { nombre, descripcion, categoria, codigo, foto, precio, stock } = req.body;
+                if (!(nombre && codigo && precio && stock && categoria)) {
+                    res.status(400).send("Datos requeridos: nombre, código, precio, stock.");
+                }
+                let timestamp = new Date();
+                const updateProduct = { timestamp, nombre, descripcion, categoria, codigo, foto, precio, stock };
+                yield ProductsService.updateProduct(id, updateProduct);
+                res.status(200).json({ Respuesta: "Producto Modificado!" });
+            }
+            catch (error) {
+                logger_1.loggerError.error(error);
+                res.status(500).json({ Respuesta: "Error de sistema!" });
+            }
+        });
+    }
+    deleteProduct(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const id = req.params.id;
+                const product = yield ProductsService.showProductById(id);
+                if (!product) {
+                    res.status(404).json({ error: 'Producto no encontrado.' });
+                }
+                yield ProductsService.deleteProduct(id);
+                res.status(200).send('Producto Eliminado.');
+            }
+            catch (error) {
+                logger_1.loggerError.error(error);
+                res.status(500).json({ Respuesta: "Error de sistema!" });
             }
         });
     }

@@ -19,38 +19,21 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userModel = exports.userSchema = void 0;
+exports.mensajeModel = exports.MensajeSchema = void 0;
 const mongoose = __importStar(require("mongoose"));
-const userCollection = 'users';
-exports.userSchema = new mongoose.Schema({
+const mensajeCollection = 'mensaje';
+exports.MensajeSchema = new mongoose.Schema({
     email: {
         type: String,
-        required: 'Ingrese email'
+        required: true
     },
-    password: {
-        type: String,
-        required: 'Ingrese contraseña'
-    },
-    nombre: {
-        type: String,
-        required: 'Ingrese Nombre'
-    },
-    apellido: {
-        type: String,
-        required: 'Ingrese Apellido'
-    },
-    direccion: {
+    timestamp: Date,
+    estado: {
         type: String
     },
-    edad: {
-        type: String
-    },
-    telefono: {
+    message: {
         type: String,
-        required: 'Ingrese Teléfono'
-    },
-    avatar: {
-        type: String
+        required: true
     }
 });
-exports.userModel = mongoose.model(userCollection, exports.userSchema);
+exports.mensajeModel = mongoose.model(mensajeCollection, exports.MensajeSchema);

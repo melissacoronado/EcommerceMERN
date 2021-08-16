@@ -28,22 +28,26 @@ exports.ProductsSchema = new mongoose.Schema({
     },
     nombre: {
         type: String,
-        required: 'Ingrese nombre'
+        required: 'Nombre requerido'
     },
     descripcion: {
         type: String
     },
-    codigo: {
+    categoria: {
         type: String
     },
-    foto: {
-        type: Number
+    codigo: {
+        type: String,
+        required: 'Código requerido'
     },
+    fotos: Array,
     precio: {
-        type: Number
+        type: Number,
+        required: 'Precio requerido'
     },
     stock: {
-        type: Number
+        type: Number,
+        required: 'Stock requerido'
     },
     created_date: {
         type: Date,

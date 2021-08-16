@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductosService = void 0;
 const productos_schema_1 = require("../models/schemas/productos.schema");
+const logger_1 = require("../helper/logger");
 class ProductosService {
     constructor() {
         this.listaProductos = [];
@@ -50,8 +51,8 @@ class ProductosService {
             try {
                 const newProd = new productos_schema_1.productosModel(producto);
                 yield newProd.save()
-                    .then(() => console.log("Producto Guardado"))
-                    .catch((err) => console.log(err));
+                    .then(() => logger_1.logger.info(`Producto Agregado`))
+                    .catch((err) => logger_1.loggerError.error(err));
             }
             catch (error) {
                 throw error;
@@ -69,8 +70,8 @@ class ProductosService {
                         stock: prodDto.stock
                     }
                 })
-                    .then(() => console.log("Producto Actualizado"))
-                    .catch((err) => console.log(err));
+                    .then(() => logger_1.logger.info(`Producto Actualizado`))
+                    .catch((err) => logger_1.loggerError.error(err));
             }
             catch (error) {
                 throw error;
@@ -79,7 +80,7 @@ class ProductosService {
         this.deleteProduct = (idProd) => __awaiter(this, void 0, void 0, function* () {
             try {
                 yield productos_schema_1.productosModel.deleteOne({ _id: idProd });
-                console.log("Producto Eliminado");
+                logger_1.logger.info(`Producto Eliminado`);
             }
             catch (error) {
                 throw error;

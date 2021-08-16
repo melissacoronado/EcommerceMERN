@@ -1,23 +1,4 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -27,18 +8,70 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthService = void 0;
-const bcrypt = __importStar(require("bcrypt"));
-const saltOrRounds = 10;
+const configs_1 = require("../config/configs");
+const user_service_1 = require("./user.service");
+const bcrypt_1 = __importDefault(require("bcrypt"));
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+let UsersService = new user_service_1.UserService();
 class AuthService {
     constructor() {
+        this.registerUser = (user) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                let newUser = null;
+                let encryptedPassword = yield this.encryptPassw(user.password);
+                user.password = encryptedPassword;
+                return yield UsersService.newUser(user);
+            }
+            catch (error) {
+                throw error;
+            }
+        });
         this.encryptPassw = (passw) => __awaiter(this, void 0, void 0, function* () {
-            return yield bcrypt.hash(passw, saltOrRounds);
+            return yield bcrypt_1.default.hash(passw, 10);
         });
-        this.checkPassw = (passw, user) => __awaiter(this, void 0, void 0, function* () {
-            return yield bcrypt.compare(passw, user.password);
+        this.isValidPassword = (passw, user) => __awaiter(this, void 0, void 0, function* () {
+            return yield bcrypt_1.default.compare(passw, user.password);
         });
+    }
+    verifyToken(token) {
+        try {
+            const decoded = jsonwebtoken_1.default.verify(token, configs_1.configSystem.TOKEN_KEY);
+            /*jwt.verify(token, configSystem.TOKEN_KEY!, (err: any, user: any) => {
+                if (err){
+                    throw err;
+                }
+                return user;
+            });*/
+            return decoded;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+    generateToken(email) {
+        const token = jsonwebtoken_1.default.sign({
+            user_id: email
+        }, configs_1.configSystem.TOKEN_KEY, {
+            expiresIn: configs_1.configSystem.TOKEN_EXPIRES,
+        });
+        //console.log(token);
+        return token;
+    }
+    invalidateToken(email) {
+        const token = jsonwebtoken_1.default.sign({
+            user_id: email
+        }, configs_1.configSystem.TOKEN_KEY, {
+            expiresIn: 1,
+        });
+        return token;
+    }
+    logOutUser(email) {
+        return this.invalidateToken(email);
     }
 }
 exports.AuthService = AuthService;

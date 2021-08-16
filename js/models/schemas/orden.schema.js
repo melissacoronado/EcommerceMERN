@@ -19,38 +19,25 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userModel = exports.userSchema = void 0;
+exports.ordenPedidoModel = exports.OrdenPedidoSchema = void 0;
 const mongoose = __importStar(require("mongoose"));
-const userCollection = 'users';
-exports.userSchema = new mongoose.Schema({
-    email: {
+const itemSchema_1 = require("./itemSchema");
+const ordenPedidoCollection = 'ordenPedido';
+exports.OrdenPedidoSchema = new mongoose.Schema({
+    /*orderId: {
+        type: String
+    },*/
+    idUsuario: {
         type: String,
-        required: 'Ingrese email'
+        required: true
     },
-    password: {
-        type: String,
-        required: 'Ingrese contraseña'
-    },
-    nombre: {
-        type: String,
-        required: 'Ingrese Nombre'
-    },
-    apellido: {
-        type: String,
-        required: 'Ingrese Apellido'
-    },
-    direccion: {
+    productos: [itemSchema_1.ItemCarritoSchema],
+    timestamp: Date,
+    estado: {
         type: String
     },
-    edad: {
-        type: String
-    },
-    telefono: {
-        type: String,
-        required: 'Ingrese Teléfono'
-    },
-    avatar: {
-        type: String
+    totalOrden: {
+        type: Number
     }
 });
-exports.userModel = mongoose.model(userCollection, exports.userSchema);
+exports.ordenPedidoModel = mongoose.model(ordenPedidoCollection, exports.OrdenPedidoSchema);
