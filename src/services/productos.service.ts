@@ -55,7 +55,7 @@ export class ProductosService implements  IProducto{
         try{            
             const newProd = new productosModel(producto)
             await newProd.save()
-            .then(() => logger.info(`Carrito eliminado`))
+            .then(() => logger.info(`Producto Agregado`))
             .catch( (err: any) => loggerError.error(err));
 
         }catch(error){            
@@ -75,7 +75,7 @@ export class ProductosService implements  IProducto{
                 stock: prodDto.stock
                 }
             })
-            .then(() => logger.info(`Carrito eliminado`))
+            .then(() => logger.info(`Producto Actualizado`))
             .catch( (err: any) => loggerError.error(err));
 
         }catch(error){

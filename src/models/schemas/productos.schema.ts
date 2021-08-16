@@ -12,6 +12,9 @@ export const ProductsSchema = new mongoose.Schema({
     descripcion: {
         type: String            
     },
+    categoria: {
+        type: String            
+    },
     codigo: {
         type: String,
         required: 'Código requerido'        

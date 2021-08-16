@@ -1,9 +1,11 @@
 
-import express, {RequestHandler} from 'express'
+import express, {RequestHandler, Response} from 'express'
 import cookieParser from 'cookie-parser';
 import { RoutesProductos } from "./routes/productos.route";
 import { RoutesAuth } from './routes/auth.routes';
 import { RoutesCarrito } from './routes/carrito.route';
+import { RoutesOrdenPedido } from './routes/ordenPedido.route';
+import { RoutesDocs } from './routes/documentacion.route';
 import { configSystem } from './config/configs';
 import expressSession from 'express-session';
 import passport from 'passport';
@@ -17,12 +19,16 @@ class App {
     public routePrd: RoutesProductos = new RoutesProductos();
     public routeAuth: RoutesAuth = new RoutesAuth();
     public routeCarrito: RoutesCarrito = new RoutesCarrito();
+    public routeOrdenPedido: RoutesOrdenPedido = new RoutesOrdenPedido();
+    public routeDocs: RoutesDocs = new RoutesDocs();
 
     constructor() {
         this.config();
         this.routePrd.routes(this.app);   
         this.routeAuth.routes(this.app); 
         this.routeCarrito.routes(this.app); 
+        this.routeOrdenPedido.routes(this.app);
+        this.routeDocs.routes(this.app);
     }
 
     private config(): void{

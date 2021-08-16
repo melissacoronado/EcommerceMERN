@@ -9,25 +9,30 @@ let authService = new AuthService();
 
 export class AuthController{
 
-    public async registerUser (req: Request, res: Response) {              
-        const { email, password, nombre, apellido, direccion, edad, telefono, avatar } = req.body   
-        //validar Paramteros obligatorios
-        if (!(email && password && nombre && apellido && telefono)) {
-            res.status(400).send("Datos requeridos: email, password, nombre, apellido, telefono.");
-        }
+    public async registerUser (req: Request, res: Response) { 
+        try{             
+            const { email, password, nombre, apellido, direccion, edad, telefono, avatar } = req.body   
+            //validar Paramteros obligatorios
+            if (!(email && password && nombre && apellido && telefono)) {
+                res.status(400).send("Datos requeridos: email, password, nombre, apellido, telefono.");
+            }
 
-        //Chequear si usuario existe
-        let userExits = await userService.findUserByEmail(email); 
-        if (userExits) {
-            return res.status(409).send("Usuario existe, Por favor inicie sesión.");
-        }
+            //Chequear si usuario existe
+            let userExits = await userService.findUserByEmail(email); 
+            if (userExits) {
+                return res.status(409).send("Usuario existe, Por favor inicie sesión.");
+            }
 
-        const newUser = {  email, password, nombre, apellido, direccion, edad, telefono, avatar }
-        let registredUser = await authService.registerUser(newUser); 
+            const newUser = {  email, password, nombre, apellido, direccion, edad, telefono, avatar }
+            let registredUser = await authService.registerUser(newUser); 
 
-        if(registredUser){
-            let token: string = authService.generateToken(registredUser.email);
-            res.header("x-auth-token", token).status(201).json({Resultado: 'Usuario creado correctamente', jwt: token});
+            if(registredUser){
+                let token: string = authService.generateToken(registredUser.email);
+                return res.header("x-auth-token", token).status(201).json({Resultado: 'Usuario creado correctamente', jwt: token});
+            }
+        }catch(error){  
+            loggerError.error(error);        
+            res.status(500).json({Respuesta: "Error de sistema!"}) 
         }
     }
 
@@ -73,14 +78,11 @@ export class AuthController{
     }
 
     public async logOutUser(req: Request, res: Response) {  
-        try {
-            //res.clearCookie('x-auth-token').send("Sesión finalizada");    
+        try {   
             const tokenHeader = req.body.token || req.query.token || req.headers["x-access-token"];
-            const tkn = await authService.verifyToken(tokenHeader);
-            
-            const msjLogOut = await authService.logOutUser(tkn.user_id);  
-            logger.info(`logOutUser ${await authService.verifyToken(tokenHeader)} `);
-
+            const decodedTkn = authService.verifyToken(tokenHeader);
+            //logger.info(`tkn ${decodedTkn} `);
+            const msjLogOut = await authService.logOutUser(decodedTkn.user_id);  
             res.status(200).send("Sesión Finalizada");
         }
         catch (err) {

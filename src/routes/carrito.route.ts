@@ -16,9 +16,6 @@ export class RoutesCarrito {
 
         app.route('/carrito/:id')
         .get(this.authController.isLoggedIn, this.cartController.findCarritoByUser)
-        .delete(this.authController.isLoggedIn, this.cartController.deleteAllCarritoByUser)
-        /*.patch(this.authController.isLoggedIn, this.productController.updateProduct)
-        .delete(this.authController.isLoggedIn, this.productController.deleteProduct);*/
-    }
-    
+        .delete(this.authController.isLoggedIn, this.cartController.deleteAllCarritoByUser);
+    }    
 }

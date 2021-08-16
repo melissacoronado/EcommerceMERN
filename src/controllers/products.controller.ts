@@ -7,14 +7,19 @@ let ProductsService = new ProductosService()
 
 export class ProductController{
 
-    public async addNewProduct (req: Request, res: Response) {                
-        const { timestamp, nombre, descripcion, codigo, fotos, precio, stock } = req.body  
-        if (!(nombre && codigo && precio && stock)) {
-            res.status(400).send("Datos requeridos: nombre, código, precio, stock.");
-        }       
+    public async addNewProduct (req: Request, res: Response) {    
+        try{            
+            const { timestamp, nombre, descripcion, categoria, codigo, fotos, precio, stock } = req.body  
+            if (!(nombre && codigo && precio && stock && categoria)) {
+                res.status(400).send("Datos requeridos: nombre, categoria, código, precio, stock.");
+            }       
 
-        await ProductsService.addProduct(req.body)       
-        res.status(200).json('Producto almacenado con exito');
+            await ProductsService.addProduct(req.body)       
+            res.status(201).json('Producto almacenado con exito');
+        }catch(error){  
+            loggerError.error(error);        
+            res.status(500).json({Respuesta: "Error de sistema!"}) 
+        }
     }
 
     public async showProducts (req: Request, res: Response) {                
@@ -51,13 +56,13 @@ export class ProductController{
                 res.status(404).json({error : 'Producto no encontrado.'})
             }
 
-            const { nombre, descripcion, codigo, foto, precio, stock } = req.body
-            if (!(nombre && codigo && precio && stock)) {
+            const { nombre, descripcion, categoria, codigo, foto, precio, stock } = req.body
+            if (!(nombre && codigo && precio && stock && categoria)) {
                 res.status(400).send("Datos requeridos: nombre, código, precio, stock.");
             }
 
             let timestamp = new Date();
-            const updateProduct: productosDTO = {timestamp, nombre, descripcion, codigo, foto, precio, stock};
+            const updateProduct: productosDTO = {timestamp, nombre, descripcion, categoria, codigo, foto, precio, stock};
             await ProductsService.updateProduct(id, updateProduct);
             
             res.status(200).json({Respuesta: "Producto Modificado!"}) 

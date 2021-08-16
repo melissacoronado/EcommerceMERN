@@ -23,13 +23,15 @@ export class AuthService implements IAuth{
 
     verifyToken(token: string): any {
         try {
-            jwt.verify(token, configSystem.TOKEN_KEY!, (err: any, user: any) => {
+            const decoded = jwt.verify(token, configSystem.TOKEN_KEY!);
+
+            /*jwt.verify(token, configSystem.TOKEN_KEY!, (err: any, user: any) => {
                 if (err){
                     throw err;
                 }
                 return user;
-            });
-
+            });*/
+            return decoded;
         } catch (err) {
             throw err;
         }
@@ -74,7 +76,8 @@ export class AuthService implements IAuth{
         return await bcrypt.compare(passw, user.password);
     }
 
-    logOutUser(email: string): string {        
+    logOutUser(email: string): string {     
+
         return this.invalidateToken(email);
     }    
 }

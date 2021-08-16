@@ -17,3 +17,1351 @@
 [2021-08-14T01:01:28.935] [ERROR] archivoError - Prueba logger Error 8081 PID
 [2021-08-14T01:03:50.636] [ERROR] archivoError - Prueba logger Error 8081 PID
 [2021-08-14T01:06:23.178] [ERROR] archivoError - Prueba logger Error 8081 PID
+[2021-08-14T20:53:33.532] [ERROR] archivoError - Prueba logger Error 8081 PID
+[2021-08-14T23:09:59.933] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:17)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:410:3)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10) {
+  expiredAt: 2021-08-09T02:30:13.000Z
+}
+[2021-08-14T23:49:51.670] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:47:37
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:5:58) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-14T23:51:05.583] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:50:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-14T23:59:16.556] [ERROR] archivoError - 
+Foto avatar copiado
+[2021-08-14T23:59:59.855] [ERROR] archivoError - Error: users validation failed: email: Ingrese email
+    at ValidationError.inspect (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\error\validation.js:47:26)
+    at internal/per_context/primordials.js:23:32
+    at formatValue (internal/util/inspect.js:775:19)
+    at inspect (internal/util/inspect.js:337:10)
+    at formatWithOptionsInternal (internal/util/inspect.js:2008:40)
+    at Object.format (internal/util/inspect.js:1882:10)
+    at basicLayout (C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\layouts.js:62:57)
+    at app (C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\appenders\file.js:64:23)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\log4js.js:42:5
+    at Array.forEach (<anonymous>)
+    at sendLogEventToAppender (C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\log4js.js:41:21)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\clustering.js:23:26
+    at Array.forEach (<anonymous>)
+    at sendToListeners (C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\clustering.js:23:13)
+    at Object.send (C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\clustering.js:89:7)
+    at Logger._log (C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\logger.js:90:16) {
+  errors: {
+    email: ValidatorError: Ingrese email
+        at validate (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1253:13)
+        at C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1236:7
+        at Array.forEach (<anonymous>)
+        at SchemaString.SchemaType.doValidate (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1181:14)
+        at C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\document.js:2523:18
+        at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'email',
+      value: '',
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'users validation failed'
+}
+[2021-08-14T23:59:59.882] [ERROR] archivoError - 
+Foto avatar copiado
+[2021-08-15T00:01:04.775] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:17)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+    at attempt (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:366:16)
+    at authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:367:7) {
+  expiredAt: 2021-08-06T21:59:03.000Z
+}
+[2021-08-15T00:01:20.496] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:47:37
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:5:58) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T00:01:42.753] [ERROR] archivoError - TypeError: Cannot read property 'user_id' of undefined
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:81:64
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-08-15T00:04:48.028] [ERROR] archivoError - TypeError: Cannot read property 'user_id' of undefined
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:81:64
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-08-15T00:06:14.266] [ERROR] archivoError - TypeError: Cannot read property 'user_id' of undefined
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:81:64
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-08-15T00:08:11.499] [ERROR] archivoError - TypeError: Cannot read property 'user_id' of undefined
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:81:64
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-08-15T00:09:13.478] [ERROR] archivoError - TypeError: Cannot read property 'user_id' of undefined
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:81:64
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-08-15T00:11:08.843] [ERROR] archivoError - TypeError: Cannot read property 'user_id' of undefined
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:82:64
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-08-15T00:18:02.363] [ERROR] archivoError - TypeError: Cannot read property 'user_id' of undefined
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:82:71
+    at Generator.next (<anonymous>)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:4:12)
+    at logOutUser (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:83:16)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:67:13)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+[2021-08-15T00:19:36.260] [ERROR] archivoError - TypeError: Cannot read property 'user_id' of undefined
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:82:71
+    at Generator.next (<anonymous>)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:4:12)
+    at logOutUser (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:83:16)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:67:13)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+[2021-08-15T00:36:14.161] [ERROR] archivoError - JsonWebTokenError: invalid signature
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:133:19
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+    at attempt (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:366:16)
+    at authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:367:7)
+[2021-08-15T00:43:03.475] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:267:15)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\products.controller.ts:38:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\products.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T00:45:51.104] [ERROR] archivoError - JsonWebTokenError: invalid signature
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:133:19
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:410:3)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+[2021-08-15T00:47:24.465] [ERROR] archivoError - JsonWebTokenError: invalid signature
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:133:19
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+    at attempt (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:366:16)
+    at authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:367:7)
+[2021-08-15T00:48:30.378] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10) {
+  expiredAt: 2021-08-08T22:00:31.000Z
+}
+[2021-08-15T00:51:34.775] [ERROR] archivoError - Error: productos validation failed: stock: Stock requerido
+    at ValidationError.inspect (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\error\validation.js:47:26)
+    at internal/per_context/primordials.js:23:32
+    at formatValue (internal/util/inspect.js:775:19)
+    at inspect (internal/util/inspect.js:337:10)
+    at formatWithOptionsInternal (internal/util/inspect.js:2008:40)
+    at Object.format (internal/util/inspect.js:1882:10)
+    at basicLayout (C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\layouts.js:62:57)
+    at app (C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\appenders\file.js:64:23)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\log4js.js:42:5
+    at Array.forEach (<anonymous>)
+    at sendLogEventToAppender (C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\log4js.js:41:21)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\clustering.js:23:26
+    at Array.forEach (<anonymous>)
+    at sendToListeners (C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\clustering.js:23:13)
+    at Object.send (C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\clustering.js:89:7)
+    at Logger._log (C:\Backend\Desafios\EcommerceMERN\node_modules\log4js\lib\logger.js:90:16) {
+  errors: {
+    stock: ValidatorError: Stock requerido
+        at validate (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1253:13)
+        at C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1236:7
+        at Array.forEach (<anonymous>)
+        at SchemaNumber.SchemaType.doValidate (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1181:14)
+        at C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\document.js:2523:18
+        at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'stock',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'productos validation failed'
+}
+[2021-08-15T00:53:33.424] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:267:15)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\products.controller.ts:63:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\products.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T00:54:02.102] [ERROR] archivoError - JsonWebTokenError: invalid signature
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:133:19
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+    at attempt (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:366:16)
+    at authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:367:7)
+[2021-08-15T00:55:29.813] [ERROR] archivoError - JsonWebTokenError: invalid signature
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:133:19
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:410:3)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+[2021-08-15T00:56:51.434] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14) {
+  expiredAt: 2021-08-05T02:17:59.000Z
+}
+[2021-08-15T00:57:51.871] [ERROR] archivoError - JsonWebTokenError: invalid signature
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:133:19
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14)
+[2021-08-15T00:58:14.815] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\products.controller.ts:80:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\products.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T00:59:31.415] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\products.controller.ts:80:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\products.controller.ts:5:58)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T17:47:29.910] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10) {
+  expiredAt: 2021-08-15T05:42:41.000Z
+}
+[2021-08-15T17:56:12.996] [ERROR] archivoError - JsonWebTokenError: invalid signature
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:133:19
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:410:3)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+[2021-08-15T17:57:02.823] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:267:15)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\products.controller.ts:63:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\products.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T18:03:02.584] [ERROR] archivoError - JsonWebTokenError: invalid token
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:75:17)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+    at attempt (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:366:16)
+    at authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:367:7)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:317:13)
+[2021-08-15T18:05:14.105] [ERROR] archivoError - JsonWebTokenError: invalid token
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:75:17)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+    at attempt (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:366:16)
+    at authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:367:7)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:317:13)
+[2021-08-15T18:08:08.813] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10) {
+  expiredAt: 2021-08-09T02:30:13.000Z
+}
+[2021-08-15T18:09:14.011] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:267:15)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:78:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T18:21:09.223] [ERROR] archivoError - JsonWebTokenError: invalid signature
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:133:19
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:410:3)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+[2021-08-15T18:29:44.457] [ERROR] archivoError - CastError: Cast to ObjectId failed for value "606ba8b2d4c2951cc4af550p" at path "_id" for model "productos"
+    at model.Query.exec (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:4437:21)
+    at ProductosService.<anonymous> (C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:32:63)
+    at Generator.next (<anonymous>)
+    at C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:4:12)
+    at ProductosService.showProductById (C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:30:48)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:59:73
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  messageFormat: undefined,
+  stringValue: '"606ba8b2d4c2951cc4af550p"',
+  kind: 'ObjectId',
+  value: '606ba8b2d4c2951cc4af550p',
+  path: '_id',
+  reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+      at new ObjectID (C:\Backend\Desafios\EcommerceMERN\node_modules\bson\lib\bson\objectid.js:59:11)
+      at castObjectId (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schema\objectid.js:245:12)
+      at ObjectId.SchemaType.applySetters (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1106:12)
+      at ObjectId.SchemaType._castForQuery (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1584:15)
+      at ObjectId.SchemaType.castForQuery (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1574:15)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1551:20)
+      at cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\cast.js:331:32)
+      at model.Query.Query.cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:4876:12)
+      at model.Query.Query._castConditions (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:1919:10)
+      at model.Query.<anonymous> (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:2176:8)
+      at model.Query._wrappedThunk [as _findOne] (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+      at C:\Backend\Desafios\EcommerceMERN\node_modules\kareem\index.js:370:33
+      at processTicksAndRejections (internal/process/task_queues.js:75:11)
+}
+[2021-08-15T18:29:58.310] [ERROR] archivoError - CastError: Cast to ObjectId failed for value "606ba8b2d4c2951cc4p" at path "_id" for model "productos"
+    at model.Query.exec (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:4437:21)
+    at ProductosService.<anonymous> (C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:32:63)
+    at Generator.next (<anonymous>)
+    at C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:4:12)
+    at ProductosService.showProductById (C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:30:48)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:59:73
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  messageFormat: undefined,
+  stringValue: '"606ba8b2d4c2951cc4p"',
+  kind: 'ObjectId',
+  value: '606ba8b2d4c2951cc4p',
+  path: '_id',
+  reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+      at new ObjectID (C:\Backend\Desafios\EcommerceMERN\node_modules\bson\lib\bson\objectid.js:59:11)
+      at castObjectId (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schema\objectid.js:245:12)
+      at ObjectId.SchemaType.applySetters (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1106:12)
+      at ObjectId.SchemaType._castForQuery (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1584:15)
+      at ObjectId.SchemaType.castForQuery (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1574:15)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1551:20)
+      at cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\cast.js:331:32)
+      at model.Query.Query.cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:4876:12)
+      at model.Query.Query._castConditions (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:1919:10)
+      at model.Query.<anonymous> (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:2176:8)
+      at model.Query._wrappedThunk [as _findOne] (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+      at C:\Backend\Desafios\EcommerceMERN\node_modules\kareem\index.js:370:33
+      at processTicksAndRejections (internal/process/task_queues.js:75:11)
+}
+[2021-08-15T18:31:30.639] [ERROR] archivoError - CastError: Cast to ObjectId failed for value "606ba8b2d4c2951cc4p" at path "_id" for model "productos"
+    at model.Query.exec (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:4437:21)
+    at ProductosService.<anonymous> (C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:32:63)
+    at Generator.next (<anonymous>)
+    at C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:4:12)
+    at ProductosService.showProductById (C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:30:48)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:59:73
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  messageFormat: undefined,
+  stringValue: '"606ba8b2d4c2951cc4p"',
+  kind: 'ObjectId',
+  value: '606ba8b2d4c2951cc4p',
+  path: '_id',
+  reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+      at new ObjectID (C:\Backend\Desafios\EcommerceMERN\node_modules\bson\lib\bson\objectid.js:59:11)
+      at castObjectId (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schema\objectid.js:245:12)
+      at ObjectId.SchemaType.applySetters (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1106:12)
+      at ObjectId.SchemaType._castForQuery (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1584:15)
+      at ObjectId.SchemaType.castForQuery (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1574:15)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1551:20)
+      at cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\cast.js:331:32)
+      at model.Query.Query.cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:4876:12)
+      at model.Query.Query._castConditions (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:1919:10)
+      at model.Query.<anonymous> (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:2176:8)
+      at model.Query._wrappedThunk [as _findOne] (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+      at C:\Backend\Desafios\EcommerceMERN\node_modules\kareem\index.js:370:33
+      at processTicksAndRejections (internal/process/task_queues.js:75:11)
+}
+[2021-08-15T18:32:04.160] [ERROR] archivoError - CastError: Cast to ObjectId failed for value "" at path "_id" for model "productos"
+    at model.Query.exec (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:4437:21)
+    at ProductosService.<anonymous> (C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:32:63)
+    at Generator.next (<anonymous>)
+    at C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:4:12)
+    at ProductosService.showProductById (C:\Backend\Desafios\EcommerceMERN\src\services\productos.service.ts:30:48)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:59:73
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  messageFormat: undefined,
+  stringValue: '""',
+  kind: 'ObjectId',
+  value: '',
+  path: '_id',
+  reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+      at new ObjectID (C:\Backend\Desafios\EcommerceMERN\node_modules\bson\lib\bson\objectid.js:59:11)
+      at castObjectId (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schema\objectid.js:245:12)
+      at ObjectId.SchemaType.applySetters (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1106:12)
+      at ObjectId.SchemaType._castForQuery (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1584:15)
+      at ObjectId.SchemaType.castForQuery (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1574:15)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1551:20)
+      at cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\cast.js:331:32)
+      at model.Query.Query.cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:4876:12)
+      at model.Query.Query._castConditions (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:1919:10)
+      at model.Query.<anonymous> (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:2176:8)
+      at model.Query._wrappedThunk [as _findOne] (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+      at C:\Backend\Desafios\EcommerceMERN\node_modules\kareem\index.js:370:33
+      at processTicksAndRejections (internal/process/task_queues.js:75:11)
+}
+[2021-08-15T18:32:16.677] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+    at attempt (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:366:16)
+    at authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:367:7) {
+  expiredAt: 2021-08-15T05:42:41.000Z
+}
+[2021-08-15T18:32:39.118] [ERROR] archivoError - TypeError: Cannot read property 'stock' of null
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:68:44
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-08-15T18:33:29.110] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:267:15)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:78:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T18:33:56.568] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:73:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T18:35:17.598] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:267:15)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:74:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T18:36:45.915] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:410:3)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10) {
+  expiredAt: 2021-08-09T02:30:13.000Z
+}
+[2021-08-15T18:39:50.479] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:267:15)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:43:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T18:47:17.562] [ERROR] archivoError - JsonWebTokenError: invalid token
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:75:17)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:410:3)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+    at attempt (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:366:16)
+    at authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:367:7)
+[2021-08-15T18:49:02.858] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+    at attempt (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:366:16)
+    at authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:367:7) {
+  expiredAt: 2021-08-15T05:42:41.000Z
+}
+[2021-08-15T18:53:56.937] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10) {
+  expiredAt: 2021-08-09T02:30:13.000Z
+}
+[2021-08-15T18:54:52.638] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:129:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T19:03:07.578] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:129:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T19:06:06.217] [ERROR] archivoError - TypeError: Cannot read property 'toString' of undefined
+    at C:\Backend\Desafios\EcommerceMERN\src\services\carrito.service.ts:50:65
+    at Array.forEach (<anonymous>)
+    at CarritoService.existeProductoCarrito (C:\Backend\Desafios\EcommerceMERN\src\services\carrito.service.ts:49:31)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:122:62
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-08-15T19:10:35.637] [ERROR] archivoError - TypeError: Cannot read property 'toString' of undefined
+    at C:\Backend\Desafios\EcommerceMERN\src\services\carrito.service.ts:50:65
+    at Array.forEach (<anonymous>)
+    at CarritoService.existeProductoCarrito (C:\Backend\Desafios\EcommerceMERN\src\services\carrito.service.ts:49:31)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:120:62
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-08-15T19:13:33.263] [ERROR] archivoError - TypeError: Cannot read property 'toString' of undefined
+    at C:\Backend\Desafios\EcommerceMERN\src\services\carrito.service.ts:50:65
+    at Array.forEach (<anonymous>)
+    at CarritoService.existeProductoCarrito (C:\Backend\Desafios\EcommerceMERN\src\services\carrito.service.ts:49:31)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:121:62
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-08-15T19:16:57.371] [ERROR] archivoError - TypeError: Cannot read property 'toString' of undefined
+    at C:\Backend\Desafios\EcommerceMERN\src\services\carrito.service.ts:50:65
+    at Array.forEach (<anonymous>)
+    at CarritoService.existeProductoCarrito (C:\Backend\Desafios\EcommerceMERN\src\services\carrito.service.ts:49:31)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:121:62
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-08-15T19:19:54.824] [ERROR] archivoError - TypeError: Cannot read property 'toString' of undefined
+    at C:\Backend\Desafios\EcommerceMERN\src\services\carrito.service.ts:51:65
+    at Array.forEach (<anonymous>)
+    at CarritoService.existeProductoCarrito (C:\Backend\Desafios\EcommerceMERN\src\services\carrito.service.ts:49:31)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:121:62
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-08-15T19:47:39.624] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+    at attempt (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:366:16)
+    at authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:367:7) {
+  expiredAt: 2021-08-15T22:47:34.000Z
+}
+[2021-08-15T19:48:01.327] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+    at attempt (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:366:16)
+    at authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:367:7) {
+  expiredAt: 2021-08-15T22:47:34.000Z
+}
+[2021-08-15T19:57:59.916] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10) {
+  expiredAt: 2021-08-15T22:47:34.000Z
+}
+[2021-08-15T19:58:55.886] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10) {
+  expiredAt: 2021-08-15T22:47:34.000Z
+}
+[2021-08-15T19:59:45.357] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:410:3)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10) {
+  expiredAt: 2021-08-15T22:47:34.000Z
+}
+[2021-08-15T20:00:54.108] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:131:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T20:06:06.328] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:98:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T20:06:31.014] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:98:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T20:07:25.726] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:98:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T20:09:05.380] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:98:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T20:09:32.069] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:98:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T20:10:20.043] [ERROR] archivoError - CastError: Cast to ObjectId failed for value "60bec8573b79640df8921923b" at path "_id" for model "users"
+    at model.Query.exec (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:4437:21)
+    at UserService.<anonymous> (C:\Backend\Desafios\EcommerceMERN\src\services\user.service.ts:24:55)
+    at Generator.next (<anonymous>)
+    at C:\Backend\Desafios\EcommerceMERN\src\services\user.service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Backend\Desafios\EcommerceMERN\src\services\user.service.ts:4:12)
+    at UserService.findUserById (C:\Backend\Desafios\EcommerceMERN\src\services\user.service.ts:23:41)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:92:64
+    at Generator.next (<anonymous>)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:4:12)
+    at deleteAllCarritoByUser (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:96:16)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:67:13) {
+  messageFormat: undefined,
+  stringValue: '"60bec8573b79640df8921923b"',
+  kind: 'ObjectId',
+  value: '60bec8573b79640df8921923b',
+  path: '_id',
+  reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+      at new ObjectID (C:\Backend\Desafios\EcommerceMERN\node_modules\bson\lib\bson\objectid.js:59:11)
+      at castObjectId (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schema\objectid.js:245:12)
+      at ObjectId.SchemaType.applySetters (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1106:12)
+      at ObjectId.SchemaType._castForQuery (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1584:15)
+      at ObjectId.SchemaType.castForQuery (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1574:15)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1551:20)
+      at cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\cast.js:331:32)
+      at model.Query.Query.cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:4876:12)
+      at model.Query.Query._castConditions (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:1919:10)
+      at model.Query.<anonymous> (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:2176:8)
+      at model.Query._wrappedThunk [as _findOne] (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+      at C:\Backend\Desafios\EcommerceMERN\node_modules\kareem\index.js:370:33
+      at processTicksAndRejections (internal/process/task_queues.js:75:11)
+}
+[2021-08-15T20:10:51.488] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:100:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\carrito.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T20:15:12.455] [ERROR] archivoError - JsonWebTokenError: invalid token
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:75:17)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:65:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:410:3)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+[2021-08-15T22:11:40.279] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:70:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:410:3)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10) {
+  expiredAt: 2021-08-16T00:48:05.000Z
+}
+[2021-08-15T22:12:16.898] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:70:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:410:3)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10) {
+  expiredAt: 2021-08-16T00:48:05.000Z
+}
+[2021-08-15T22:13:31.885] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:70:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:410:3)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10) {
+  expiredAt: 2021-08-16T00:48:05.000Z
+}
+[2021-08-15T22:13:46.325] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:79:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T22:14:32.660] [ERROR] archivoError - CastError: Cast to ObjectId failed for value "1" at path "_id" for model "users"
+    at model.Query.exec (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:4437:21)
+    at UserService.<anonymous> (C:\Backend\Desafios\EcommerceMERN\src\services\user.service.ts:24:55)
+    at Generator.next (<anonymous>)
+    at C:\Backend\Desafios\EcommerceMERN\src\services\user.service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Backend\Desafios\EcommerceMERN\src\services\user.service.ts:4:12)
+    at UserService.findUserById (C:\Backend\Desafios\EcommerceMERN\src\services\user.service.ts:23:41)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:77:64
+    at Generator.next (<anonymous>)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:4:12)
+    at addNewOrdenPedido (C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:80:16)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:72:13) {
+  messageFormat: undefined,
+  stringValue: '"1"',
+  kind: 'ObjectId',
+  value: '1',
+  path: '_id',
+  reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+      at new ObjectID (C:\Backend\Desafios\EcommerceMERN\node_modules\bson\lib\bson\objectid.js:59:11)
+      at castObjectId (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schema\objectid.js:245:12)
+      at ObjectId.SchemaType.applySetters (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1106:12)
+      at ObjectId.SchemaType._castForQuery (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1584:15)
+      at ObjectId.SchemaType.castForQuery (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1574:15)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1551:20)
+      at cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\cast.js:331:32)
+      at model.Query.Query.cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:4876:12)
+      at model.Query.Query._castConditions (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:1919:10)
+      at model.Query.<anonymous> (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:2176:8)
+      at model.Query._wrappedThunk [as _findOne] (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+      at C:\Backend\Desafios\EcommerceMERN\node_modules\kareem\index.js:370:33
+      at processTicksAndRejections (internal/process/task_queues.js:75:11)
+}
+[2021-08-15T22:15:46.403] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:86:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T22:17:51.151] [ERROR] archivoError - TypeError: Cannot read property 'productos' of null
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:91:21
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-08-15T22:18:24.059] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:70:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+    at attempt (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:366:16)
+    at authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:367:7) {
+  expiredAt: 2021-08-16T00:48:05.000Z
+}
+[2021-08-15T22:19:39.296] [ERROR] archivoError - JsonWebTokenError: invalid token
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:75:17)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:70:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+    at attempt (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:366:16)
+    at authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:367:7)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:317:13)
+[2021-08-15T22:22:02.014] [ERROR] archivoError - JsonWebTokenError: invalid token
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:75:17)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:70:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:410:3)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+    at attempt (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:366:16)
+    at authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:367:7)
+[2021-08-15T22:22:45.397] [ERROR] archivoError - CastError: Cast to ObjectId failed for value "1" at path "_id" for model "ordenPedido"
+    at model.Query.exec (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:4437:21)
+    at OrdenPedidoService.<anonymous> (C:\Backend\Desafios\EcommerceMERN\src\services\ordenPedido.service.ts:36:65)
+    at Generator.next (<anonymous>)
+    at C:\Backend\Desafios\EcommerceMERN\src\services\ordenPedido.service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Backend\Desafios\EcommerceMERN\src\services\ordenPedido.service.ts:4:12)
+    at OrdenPedidoService.showPedidosByPedido (C:\Backend\Desafios\EcommerceMERN\src\services\ordenPedido.service.ts:34:54)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:34:70
+    at Generator.next (<anonymous>)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:4:12)
+    at findOrdenPedidoByPedido (C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:40:16)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:72:13) {
+  messageFormat: undefined,
+  stringValue: '"1"',
+  kind: 'ObjectId',
+  value: '1',
+  path: '_id',
+  reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+      at new ObjectID (C:\Backend\Desafios\EcommerceMERN\node_modules\bson\lib\bson\objectid.js:59:11)
+      at castObjectId (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schema\objectid.js:245:12)
+      at ObjectId.SchemaType.applySetters (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1106:12)
+      at ObjectId.SchemaType._castForQuery (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1584:15)
+      at ObjectId.SchemaType.castForQuery (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1574:15)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\schematype.js:1551:20)
+      at cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\cast.js:331:32)
+      at model.Query.Query.cast (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:4876:12)
+      at model.Query.Query._castConditions (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:1919:10)
+      at model.Query.<anonymous> (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\query.js:1946:8)
+      at model.Query._wrappedThunk [as _find] (C:\Backend\Desafios\EcommerceMERN\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+      at C:\Backend\Desafios\EcommerceMERN\node_modules\kareem\index.js:370:33
+      at processTicksAndRejections (internal/process/task_queues.js:75:11)
+}
+[2021-08-15T22:29:43.925] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:267:15)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:41:29
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T22:33:48.433] [ERROR] archivoError - TokenExpiredError: jwt expired
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:94:10)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:70:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:354:14)
+    at param (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:410:3)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10) {
+  expiredAt: 2021-08-16T00:48:05.000Z
+}
+[2021-08-15T22:35:36.388] [ERROR] archivoError - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\response.js:267:15)
+    at C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:62:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Backend\Desafios\EcommerceMERN\src\controllers\ordenPedido.controller.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-08-15T22:38:24.283] [ERROR] archivoError - JsonWebTokenError: invalid token
+    at Object.module.exports [as verify] (C:\Backend\Desafios\EcommerceMERN\node_modules\jsonwebtoken\verify.js:75:17)
+    at AuthService.verifyToken (C:\Backend\Desafios\EcommerceMERN\src\services\auth.service.ts:26:33)
+    at AuthController.isLoggedIn (C:\Backend\Desafios\EcommerceMERN\src\controllers\auth.controller.ts:70:41)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Backend\Desafios\EcommerceMERN\node_modules\express\lib\router\index.js:275:10)
+    at SessionStrategy.strategy.pass (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:343:9)
+    at SessionStrategy.authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\strategies\session.js:75:10)
+    at attempt (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:366:16)
+    at authenticate (C:\Backend\Desafios\EcommerceMERN\node_modules\passport\lib\middleware\authenticate.js:367:7)
+[2021-08-15T22:48:02.255] [ERROR] archivoError - error transporter.sendGMail: Error: Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials r128sm5231396qke.98 - gsmtp 
+[2021-08-15T22:48:37.324] [ERROR] archivoError - error transporter.sendGMail: Error: Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials d78sm1003789qkg.92 - gsmtp 
+[2021-08-15T22:52:34.782] [ERROR] archivoError - error transporter.sendGMail: Error: Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials o10sm4109286qtv.31 - gsmtp 
+[2021-08-15T22:53:56.763] [ERROR] archivoError - error transporter.sendGMail: Error: Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials n18sm4340199qtl.21 - gsmtp 
+[2021-08-15T22:55:54.945] [ERROR] archivoError - error transporter.sendGMail: Error: Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials s10sm1380209qko.134 - gsmtp 

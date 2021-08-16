@@ -4,6 +4,7 @@ import { productosDTO } from '../models/dto/productos.dto';
 import { carritoModel } from '../models/schemas/carrito.schema'
 import { ProductosService } from './productos.service';
 import { logger, loggerError, loggerWarn } from '../helper/logger';
+import { direccionEntregaCarritoDTO } from '../models/dto/direccionEntregaCarrito';
 
 let ProductsService = new ProductosService()
 
@@ -15,10 +16,10 @@ interface ICarrito{
     showAllCarrito(): void;
     findCarritoByUser(idUsuario: string): void;
     existeProductoCarrito(idProducto: string, carrito: carritoDTO): void;
-    addProductCarrito(productoAgregar: productosDTO, cantidad: number, idusuario: string): void;
+    addProductCarrito(productoAgregar: productosDTO, cantidad: number, idusuario: string, direccionEntrega: direccionEntregaCarritoDTO): void;
     addCarrito(carrito: carritoDTO): void;
     deleteCarrito(idusuario: string):void
-    deleteProductoCarrito(carrito: carritoDTO, indexproductoCarrito: number):void
+    deleteProductoCarrito(carrito: carritoDTO, indexproductoCarrito: number, productoEliminar: productosDTO):void
     
 }
 
@@ -41,11 +42,11 @@ export class CarritoService implements  ICarrito{
         }
     }
 
-    existeProductoCarrito = async (idProducto: string, carrito: carritoDTO) => {
+    existeProductoCarrito = (idProducto: string, carrito: carritoDTO) => {
         try{
             let indexProductoCarrito: number = -1;
 
-            carrito.productos.forEach(async element => {
+            carrito.productos.forEach(element => {
                 if(element.idProducto.toString() === idProducto.toString()){
                     indexProductoCarrito = carrito.productos.indexOf(element);
                     return indexProductoCarrito;
@@ -69,7 +70,7 @@ export class CarritoService implements  ICarrito{
         }
     }
 
-    addProductCarrito = async (productoAgregar: productosDTO, cantidad: number, idusuario: string) => {
+    addProductCarrito = async (productoAgregar: productosDTO, cantidad: number, idusuario: string, direccionEntrega: direccionEntregaCarritoDTO) => {
         try{//PROBAR TODOOOO
             let arrItemsCarrito: itemCarritoDTO[] = [];
             let cartUser:carritoDTO = await this.findCarritoByUser(idusuario);
@@ -94,7 +95,9 @@ export class CarritoService implements  ICarrito{
                     cartUser.productos[index].precio = prodExistenteAgregarCarrito.precio;
                     //restar stock
                     prodExistenteAgregarCarrito.stock = prodExistenteAgregarCarrito.stock - cantidad;
-                    await ProductsService.updateProduct(prodExistenteAgregarCarrito._id!, prodExistenteAgregarCarrito);                        
+                    await ProductsService.updateProduct(prodExistenteAgregarCarrito._id!, prodExistenteAgregarCarrito);
+                    //Se actualiza la fecha del cambio
+                    cartUser.timestamp = new Date();
                 }else{ //Si producto no existe se agrega                    
                     //Obtengo los datos del c/producto existentes en el carrito por si cambio stock
                     let prodExistenteAgregarCarrito:productosDTO = await ProductsService.showProductById(productoAgregar._id!);  
@@ -108,10 +111,13 @@ export class CarritoService implements  ICarrito{
                                 cantidad: parseInt(cantidad.toString()),
                                 precio: parseInt(prodExistenteAgregarCarrito.precio.toString()),
                                 total: parseInt(prodExistenteAgregarCarrito.precio.toString()) * parseInt(cantidad.toString())
-                            })
+                            });
+                            //Se actualiza la fecha del cambio
+                            cartUser.timestamp = new Date();
                         }
                     }
                 }
+                await this.updateCarrito(idusuario, cartUser);   
             }else{
                 logger.info(`Usuario no tiene carrito`)    
                 //Si el usuario no tiene carrito
@@ -121,16 +127,16 @@ export class CarritoService implements  ICarrito{
                 
                 const newCartuser = {
                     idUsuario: idusuario,
-                    productos: itemsCarritoArray
+                    productos: itemsCarritoArray,
+                    direccionEntrega: direccionEntrega,
+                    timestamp: new Date()
                 }
                 const newCart = await this.addCarrito(newCartuser);
                 //restar Stock                
                 productoAgregar.stock = parseInt(productoAgregar.stock.toString()) - parseInt(cantidad.toString());
                 await ProductsService.updateProduct(productoAgregar._id!, productoAgregar);
                 return newCart;
-            }
-            await this.updateCarrito(idusuario, cartUser);           
-            
+            }            
         }catch(error){            
             throw error
         }
@@ -148,10 +154,11 @@ export class CarritoService implements  ICarrito{
     updateCarrito = async (idUsuario: string, carrito: carritoDTO) => {
         try{
             await carritoModel.updateOne({idUsuario: idUsuario}, { $set:{
-                    productos: carrito.productos
+                    productos: carrito.productos,
+                    timestamp: new Date()
                 }
             })
-            .then(() => logger.info(`Carrito eliminado`))
+            .then(() => logger.info(`Carrito actualizado`))
             .catch( (err: any) => loggerError.error(err));
 
         }catch(error){
@@ -159,10 +166,15 @@ export class CarritoService implements  ICarrito{
         }
     }
 
-    deleteProductoCarrito = async (carrito: carritoDTO, indexproductoCarrito: number) => {
+    deleteProductoCarrito = async (carrito: carritoDTO, indexproductoCarrito: number, productoEliminar: productosDTO) => {
         try{
-            carrito.productos = carrito.productos.splice(indexproductoCarrito, 1);
+            carrito.productos.splice(indexproductoCarrito, 1);
+            let cantRetorna = carrito.productos[indexproductoCarrito].cantidad;
             await this.updateCarrito(carrito.idUsuario, carrito);
+            
+            //Regresar stock
+            productoEliminar.stock = parseInt(productoEliminar.stock.toString()) + parseInt(cantRetorna.toString());
+            await ProductsService.updateProduct(productoEliminar._id!, productoEliminar);
         }catch(error){
             throw error
         }
